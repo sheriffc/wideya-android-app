@@ -536,6 +536,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+          <CheckBox
+            android:id="@+id/cbNoDifficultyAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="No Difficulty for All"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLearnerDisabilitySection" />
+
           <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tlLearnerDisabilityVision"
             android:layout_width="0dp"
@@ -547,7 +556,7 @@
             app:endIconMode="custom"
             app:layout_constraintEnd_toStartOf="@+id/tlLearnerDisabilityHearing"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvLearnerDisabilitySection"
+            app:layout_constraintTop_toBottomOf="@+id/cbNoDifficultyAll"
             app:placeholderText="Vision">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -634,7 +643,7 @@
             app:endIconMode="custom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tlLearnerDisabilityVision"
-            app:layout_constraintTop_toBottomOf="@+id/tvLearnerDisabilitySection"
+            app:layout_constraintTop_toBottomOf="@+id/cbNoDifficultyAll"
             app:placeholderText="Hearing">
 
             <com.google.android.material.textfield.TextInputEditText

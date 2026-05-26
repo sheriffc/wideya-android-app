@@ -44,6 +44,7 @@ class LearnerProfileDetailsFragment : Fragment() {
     private val validationsArray = mutableSetOf<BaseInputValidation>()
     private var schoolGroupUuid: String = String()
     private var schoolGroupOptionItem: OptionList? = null
+    private var suppressCheckboxUpdate = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -122,6 +123,13 @@ class LearnerProfileDetailsFragment : Fragment() {
                     tlLearnerMaternalStatus.visibility = View.GONE
                 }
             }
+
+            etLearnerDisabilityVision.doOnTextChanged { _, _, _, _ -> syncNoDifficultyCheckbox() }
+            etLearnerDisabilityHearing.doOnTextChanged { _, _, _, _ -> syncNoDifficultyCheckbox() }
+            etLearnerDisabilityMobility.doOnTextChanged { _, _, _, _ -> syncNoDifficultyCheckbox() }
+            etLearnerDisabilityCognition.doOnTextChanged { _, _, _, _ -> syncNoDifficultyCheckbox() }
+            etLearnerDisabilitySelfcare.doOnTextChanged { _, _, _, _ -> syncNoDifficultyCheckbox() }
+            etLearnerDisabilityCommunication.doOnTextChanged { _, _, _, _ -> syncNoDifficultyCheckbox() }
 
         }
 
@@ -453,6 +461,58 @@ class LearnerProfileDetailsFragment : Fragment() {
                 tlPrevYearGroup.visibility = android.view.View.GONE
             }
         }
+        syncNoDifficultyCheckbox()
+    }
+
+    private fun syncNoDifficultyCheckbox() {
+        if (suppressCheckboxUpdate) return
+        val noDifficultyOid = "0_no_difficulty"
+        binding.apply {
+            val allNoDifficulty = listOf(
+                etLearnerDisabilityVision,
+                etLearnerDisabilityHearing,
+                etLearnerDisabilityMobility,
+                etLearnerDisabilityCognition,
+                etLearnerDisabilitySelfcare,
+                etLearnerDisabilityCommunication
+            ).all { et -> et.getTag(R.string.idTag)?.toString() == noDifficultyOid }
+            cbNoDifficultyAll.isChecked = allNoDifficulty
+        }
+    }
+
+    private fun setAllNoDifficulty() {
+        val noDifficultyOid = "0_no_difficulty"
+        val noDifficultyName = "No Difficulty"
+        suppressCheckboxUpdate = true
+        binding.apply {
+            etLearnerDisabilityVision.setTag(R.string.idTag, noDifficultyOid)
+            etLearnerDisabilityVision.setText(noDifficultyName)
+            etLearnerDisabilityHearing.setTag(R.string.idTag, noDifficultyOid)
+            etLearnerDisabilityHearing.setText(noDifficultyName)
+            etLearnerDisabilityMobility.setTag(R.string.idTag, noDifficultyOid)
+            etLearnerDisabilityMobility.setText(noDifficultyName)
+            etLearnerDisabilityCognition.setTag(R.string.idTag, noDifficultyOid)
+            etLearnerDisabilityCognition.setText(noDifficultyName)
+            etLearnerDisabilitySelfcare.setTag(R.string.idTag, noDifficultyOid)
+            etLearnerDisabilitySelfcare.setText(noDifficultyName)
+            etLearnerDisabilityCommunication.setTag(R.string.idTag, noDifficultyOid)
+            etLearnerDisabilityCommunication.setText(noDifficultyName)
+        }
+        learnerManagementViewModel.currentLearner.apply {
+            learner_disability_severity_oid_vision = noDifficultyOid
+            learner_disability_severity_oid_vision_name = noDifficultyName
+            learner_disability_severity_oid_hearing = noDifficultyOid
+            learner_disability_severity_oid_hearing_name = noDifficultyName
+            learner_disability_severity_oid_mobility = noDifficultyOid
+            learner_disability_severity_oid_mobility_name = noDifficultyName
+            learner_disability_severity_oid_cognition = noDifficultyOid
+            learner_disability_severity_oid_cognition_name = noDifficultyName
+            learner_disability_severity_oid_selfcare = noDifficultyOid
+            learner_disability_severity_oid_selfcare_name = noDifficultyName
+            learner_disability_severity_oid_communication = noDifficultyOid
+            learner_disability_severity_oid_communication_name = noDifficultyName
+        }
+        suppressCheckboxUpdate = false
     }
 
     private fun saveLearnerDetailsInView() {
@@ -558,6 +618,7 @@ class LearnerProfileDetailsFragment : Fragment() {
             tlGuardianSex.endIconMode = TextInputLayout.END_ICON_NONE
             tlGuardianRelationToLearner.endIconMode = TextInputLayout.END_ICON_NONE
             tlLearnerClassroom.endIconMode = TextInputLayout.END_ICON_NONE
+            cbNoDifficultyAll.isEnabled = false
         }
     }
 
@@ -568,6 +629,11 @@ class LearnerProfileDetailsFragment : Fragment() {
 //            cvLearnerClassroomSection.setCardBackgroundColor(ResourcesCompat.getColor(resources, R.color.editable_area, null))
 //            cvLearnerDisabilitySection.setCardBackgroundColor(ResourcesCompat.getColor(resources, R.color.editable_area, null))
 //            cvGuardianSection.setCardBackgroundColor(ResourcesCompat.getColor(resources, R.color.editable_area, null))
+
+            cbNoDifficultyAll.isEnabled = true
+            cbNoDifficultyAll.setOnClickListener {
+                if (cbNoDifficultyAll.isChecked) setAllNoDifficulty()
+            }
 
             setViewBackgroundColorToEditable(ivGuardianPortrait)
 
