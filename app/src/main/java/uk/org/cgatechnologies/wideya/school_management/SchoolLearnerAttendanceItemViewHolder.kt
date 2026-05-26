@@ -138,10 +138,10 @@ class SchoolLearnerAttendanceItemViewHolder(
                 Pair("Early Departure", R.color.orange_pastel)
             else -> Pair(null, 0)
         }
-        binding.tvAttendanceStatus.apply {
+        binding.chipAttendanceStatus.apply {
             if (label != null) {
                 text = label
-                setTextColor(ContextCompat.getColor(context, colorRes))
+                setChipBackgroundColorResource(colorRes)
                 visibility = View.VISIBLE
             } else {
                 visibility = View.GONE
