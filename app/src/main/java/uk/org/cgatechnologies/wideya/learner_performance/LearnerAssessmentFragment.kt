@@ -139,7 +139,12 @@ class LearnerAssessmentFragment : Fragment() {
                 .map { it.subject_name }
 
             if (blankSubjects.isEmpty()) {
-                performSave(termOid, acYear)
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Confirm Grades")
+                    .setMessage("Do you confirm that the entered grades are correct?")
+                    .setPositiveButton("Save") { _, _ -> performSave(termOid, acYear) }
+                    .setNegativeButton("Go Back", null)
+                    .show()
             } else {
                 val subjectList = blankSubjects.joinToString("\n") { "• $it" }
                 MaterialAlertDialogBuilder(requireContext())
