@@ -94,7 +94,9 @@ data class LearnerAdmissionModel(
     var updated_by: Int = 0,
     var deleted_at: String? = null,
     var deleted_by: Int? = null,
-    var sync_flag: Byte = 0
+    var sync_flag: Byte = 0,
+    var attendance_am_status_oid: String? = null,
+    var attendance_pm_status_oid: String? = null,
 ) : Parcelable {
     @Ignore
     @IgnoredOnParcel
