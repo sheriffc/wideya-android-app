@@ -91,6 +91,7 @@ class SchoolLearnerAttendanceItemViewHolder(
                     setChipBackgroundColorResource(attendanceStatus.bgColor)
                     isChecked = attendanceStatus.isChecked
                     savePersonAttendance(attendance)
+                    bindAttendanceStatusLabel(attendance.attendance_am_status_oid, attendance.attendance_pm_status_oid)
                 }
             }
 
@@ -116,11 +117,36 @@ class SchoolLearnerAttendanceItemViewHolder(
                     setChipBackgroundColorResource(attendanceStatus.bgColor)
                     isChecked = attendanceStatus.isChecked
                     savePersonAttendance(attendance)
+                    bindAttendanceStatusLabel(attendance.attendance_am_status_oid, attendance.attendance_pm_status_oid)
                 }
             }
 
+            bindAttendanceStatusLabel(attendance.attendance_am_status_oid, attendance.attendance_pm_status_oid)
         }
 
+    }
+
+    private fun bindAttendanceStatusLabel(amOid: String?, pmOid: String?) {
+        val (label, colorRes) = when {
+            amOid == Constants.ATTENDANCE_PRESENT_ID && pmOid == Constants.ATTENDANCE_PRESENT_ID ->
+                Pair("Present", R.color.green_pastel)
+            amOid == Constants.ATTENDANCE_ABSENT_ID  && pmOid == Constants.ATTENDANCE_ABSENT_ID  ->
+                Pair("Absent", R.color.red_pastel)
+            amOid == Constants.ATTENDANCE_ABSENT_ID  && pmOid == Constants.ATTENDANCE_PRESENT_ID ->
+                Pair("Late", R.color.yellow_pastel)
+            amOid == Constants.ATTENDANCE_PRESENT_ID && pmOid == Constants.ATTENDANCE_ABSENT_ID  ->
+                Pair("Early Departure", R.color.orange_pastel)
+            else -> Pair(null, 0)
+        }
+        binding.tvAttendanceStatus.apply {
+            if (label != null) {
+                text = label
+                setTextColor(ContextCompat.getColor(context, colorRes))
+                visibility = View.VISIBLE
+            } else {
+                visibility = View.GONE
+            }
+        }
     }
 
     private fun attendanceSelected(attendance: String?): String? {

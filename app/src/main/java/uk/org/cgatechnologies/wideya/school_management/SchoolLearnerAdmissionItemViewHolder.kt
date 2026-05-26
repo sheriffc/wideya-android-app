@@ -8,7 +8,6 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import uk.org.cgatechnologies.wideya.R
-import uk.org.cgatechnologies.wideya.common.data.Constants
 import uk.org.cgatechnologies.wideya.databinding.ViewholderSchoolLearnerListItemBinding
 import uk.org.cgatechnologies.wideya.school_management.models.LearnerAdmissionModel
 
@@ -83,30 +82,6 @@ class SchoolLearnerAdmissionItemViewHolder(
             } else {
                 learnerIcon.setImageResource(R.drawable.learners_128)
                 learnerIcon.setColorFilter(ContextCompat.getColor(learnerIcon.context, R.color.black))
-            }
-
-            // Attendance status chip
-            val amOid = learnerAdmission.attendance_am_status_oid
-            val pmOid = learnerAdmission.attendance_pm_status_oid
-            val (statusLabel, statusColor) = when {
-                amOid == Constants.ATTENDANCE_PRESENT_ID && pmOid == Constants.ATTENDANCE_PRESENT_ID ->
-                    Pair("Present", R.color.green_pastel)
-                amOid == Constants.ATTENDANCE_ABSENT_ID && pmOid == Constants.ATTENDANCE_ABSENT_ID ->
-                    Pair("Absent", R.color.red_pastel)
-                amOid == Constants.ATTENDANCE_ABSENT_ID && pmOid == Constants.ATTENDANCE_PRESENT_ID ->
-                    Pair("Late", R.color.yellow_pastel)
-                amOid == Constants.ATTENDANCE_PRESENT_ID && pmOid == Constants.ATTENDANCE_ABSENT_ID ->
-                    Pair("Early Departure", R.color.orange_pastel)
-                amOid != null || pmOid != null ->
-                    Pair("Part. Marked", R.color.yellow_faint)
-                else -> Pair(null, 0)
-            }
-            if (statusLabel != null) {
-                chipAttendanceStatus.visibility = View.VISIBLE
-                chipAttendanceStatus.text = statusLabel
-                chipAttendanceStatus.setChipBackgroundColorResource(statusColor)
-            } else {
-                chipAttendanceStatus.visibility = View.GONE
             }
 
             root.setOnClickListener {

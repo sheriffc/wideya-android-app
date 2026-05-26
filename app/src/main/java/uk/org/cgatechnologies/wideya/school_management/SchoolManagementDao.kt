@@ -506,9 +506,7 @@ object SchoolManagementQueries {
                 sla.updated_by,
                 sla.deleted_at,
                 sla.deleted_by,
-                sla.sync_flag,
-                pa.attendance_am_status_oid,
-                pa.attendance_pm_status_oid
+                sla.sync_flag
             FROM school_learner_admission sla 
             LEFT JOIN learner l ON sla.learner_uuid = l.uuid
             LEFT JOIN person pl ON l.person_uuid = pl.uuid
@@ -564,12 +562,6 @@ object SchoolManagementQueries {
             LEFT JOIN option_list l_odoc ON l_odoc.list_name = 'disability_other_condition' AND l.disability_other_condition_oid = l_odoc.item_id
             
             LEFT JOIN school_academic_year say ON sle.academic_year = say.academic_year
-            LEFT JOIN person_attendance pa
-                ON pa.person_uuid = pl.uuid
-                AND pa.date = date('now')
-                AND pa.entity_type_oid = 'learner'
-                AND pa.school_uuid = sla.school_uuid
-                AND (pa.deleted_at IS NULL OR pa.deleted_at = '')
 
         """
     // Same columns as LEARNER_ADMISSION_MODEL but base table is learner (no admission record yet).
