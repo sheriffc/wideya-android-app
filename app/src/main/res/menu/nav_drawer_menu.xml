@@ -29,12 +29,8 @@
                 android:icon="@drawable/ic_settings"
                 android:title="Settings"/>
 
-            <item
-                android:id="@+id/LearnerPerformanceFragment"
-                android:icon="@drawable/ic_checklist"
-                android:title="Learner Performance"/>
 
-        <!--    <item-->
+<!--    <item-->
         <!--        android:id="@+id/logoutMenu"-->
         <!--        android:icon="@drawable/ic_logout_24px"-->
         <!--        android:title="Logout"/>-->

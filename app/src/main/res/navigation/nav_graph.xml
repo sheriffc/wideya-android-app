@@ -149,6 +149,9 @@
     <action
       android:id="@+id/action_SchoolProfileFragment_to_LearnerSearchFragment"
       app:destination="@id/LearnerSearchFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_LearnerAssessmentFragment"
+      app:destination="@id/LearnerAssessmentFragment" />
   </fragment>
   <fragment
     android:id="@+id/SchoolProfileDetailsFragment"

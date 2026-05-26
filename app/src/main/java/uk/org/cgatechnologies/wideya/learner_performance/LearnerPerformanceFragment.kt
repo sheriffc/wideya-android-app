@@ -45,7 +45,7 @@ class LearnerPerformanceFragment : Fragment() {
 
         adapter = LearnerPerformanceAdapter(learnerItems) { learner ->
             vm.currentLearner = learner
-            findNavController().navigate(R.id.action_LearnerPerformanceFragment_to_LearnerAssessmentFragment)
+            findNavController().navigate(R.id.action_SchoolProfileFragment_to_LearnerAssessmentFragment)
         }
         binding.rvLearners.layoutManager = LinearLayoutManager(requireContext())
         binding.rvLearners.adapter = adapter

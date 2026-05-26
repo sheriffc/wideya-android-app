@@ -215,8 +215,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.SchoolProfileFragment,
                     R.id.SchoolAnalysisFragment,
                     R.id.SchoolTeacherAttendanceListFragment,
-                    R.id.SchoolLearnerAttendanceListFragment,
-                    R.id.LearnerPerformanceFragment -> {
+                    R.id.SchoolLearnerAttendanceListFragment -> {
                         visibility = View.VISIBLE
                         enterSchoolProfileNavMenu.isVisible = true
                         displaySchoolName()

@@ -22,6 +22,7 @@ import uk.org.cgatechnologies.wideya.common.data.Constants
 import uk.org.cgatechnologies.wideya.common.data.DetailsMode
 import uk.org.cgatechnologies.wideya.common.utils.Utils
 import uk.org.cgatechnologies.wideya.databinding.FragmentSchoolProfileBinding
+import uk.org.cgatechnologies.wideya.learner_performance.LearnerPerformanceFragment
 
 private const val TAG: String = "SchoolProfileFragment"
 
@@ -66,6 +67,7 @@ class SchoolProfileFragment : Fragment() {
             SchoolGroupListFragment(),
             SchoolLearnerAdmissionListFragment(),
             SchoolFeedingFragment(),
+            LearnerPerformanceFragment(),
         )
 
         val fragmentTitle = listOf(
@@ -74,6 +76,7 @@ class SchoolProfileFragment : Fragment() {
             "Classrooms",
             "Learners",
             "Feeding",
+            "Performance",
         )
 
         val viewPager2Adapter = ViewPagerAdapter(fragmentList, this.childFragmentManager, lifecycle)
