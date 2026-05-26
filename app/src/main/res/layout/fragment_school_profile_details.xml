@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:fitsSystemWindows="true"
+  tools:context=".school_management.SchoolProfileDetailsFragment">
+
+  <androidx.core.widget.NestedScrollView
+    android:id="@+id/nestedScrollView"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toTopOf="@id/action_barrier"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginBottom="@dimen/form_bottom_margin">
+
+      <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvSchoolDetails"
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:padding="8dp">
+
+          <TextView
+            android:id="@+id/tvSchoolDetailsSection"
+            style="@style/FormCardHeading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/school_details"
+            app:layout_constraintEnd_toStartOf="@id/btTimetable"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+          <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btTimetable"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:backgroundTint="@color/button_timetable"
+            android:text="@string/school_timetable"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+          <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tvSchoolDetailsSection,btTimetable" />
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlSchoolName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/school_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrier_title"
+            app:placeholderText="Enter the School Name">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etSchoolName"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="textCapWords|textNoSuggestions" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlTabletPhoneNumber"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:hint="@string/tablet_phone_number"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/tlSchoolName"
+              app:placeholderText=""
+              app:prefixText="0">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTabletPhoneNumber"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlEducationLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/education_level"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlTabletPhoneNumber"
+            app:placeholderText="Click to select Education Level from the list">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etEducationLevel"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlEmisId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/emis_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlEducationLevel"
+            app:placeholderText="Enter the School's EMIS ID, e.g. 1234-5-67890">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etEmisId"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="phone" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlPayrollSid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/payroll_sid"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlEmisId"
+            app:placeholderText="Enter the School's Payroll SID (School ID)">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etPayrollSid"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="number" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlWaecId"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:hint="@string/waec_id"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/tlPayrollSid"
+              app:placeholderText="Enter the School's WAEC ID">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etWaecId"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlDistrictOffice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/district_office"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlWaecId"
+            app:placeholderText="Click to select District Office from the list">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etDistrictOffice"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlChiefdom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/chiefdom"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlDistrictOffice"
+            app:placeholderText="Click to select Chiefdom from the list">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etChiefdom"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/section"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlChiefdom"
+            app:placeholderText="Enter the School's Section">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etSection"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="textCapCharacters|textNoSuggestions" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlTown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/town"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlSection"
+            app:placeholderText="Enter the School's Town">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etTown"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="textCapCharacters|textNoSuggestions" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/school_address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlTown"
+            app:placeholderText="Enter the School's Address">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etAddress"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="textCapWords|textNoSuggestions" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlClassrooms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Classrooms"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlAddress"
+            app:placeholderText="Select classroom type">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etClassrooms"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlWash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="WASH"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlClassrooms"
+            app:placeholderText="Select WASH facilities">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etWash"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlElectricity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Electricity"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlWash"
+            app:placeholderText="Select electricity source(s)">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etElectricity"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlMno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="MNO (Mobile Network)"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlElectricity"
+            app:placeholderText="Select mobile network operator(s)">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etMno"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearningMaterials"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Learning Materials"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlMno"
+            app:placeholderText="Select available learning materials">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearningMaterials"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <TextView
+            android:id="@+id/tvReceivesFeedingLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="School Receiving Feeding Support?"
+            android:textAppearance="?attr/textAppearanceTitleSmall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlLearningMaterials" />
+
+          <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleReceivesFeeding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleSelection="true"
+            app:selectionRequired="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvReceivesFeedingLabel">
+
+            <com.google.android.material.button.MaterialButton
+              android:id="@+id/btnFeedingYes"
+              style="?attr/materialButtonOutlinedStyle"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="YES"
+              android:textSize="15sp" />
+
+            <com.google.android.material.button.MaterialButton
+              android:id="@+id/btnFeedingNo"
+              style="?attr/materialButtonOutlinedStyle"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="NO"
+              android:textSize="15sp" />
+
+          </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+  <androidx.constraintlayout.widget.Barrier
+    android:id="@+id/action_barrier"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:barrierDirection="top"
+    app:constraint_referenced_ids="bt_edit,bt_save" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/bt_edit"
+    style="@style/AppCompatEditButton"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/bt_save"
+    style="@style/AppCompatSaveButton"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

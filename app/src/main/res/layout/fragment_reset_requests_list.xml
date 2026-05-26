@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:fitsSystemWindows="true"
+  android:padding="32dp">
+
+  <TextView
+    android:id="@+id/tvTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/request_list_title"
+    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+    android:id="@+id/tvInfo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:text="@string/request_list_info"
+    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+  <TextView
+    android:id="@+id/countLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="25dp"
+    android:text="@string/request_heading_status_existing"
+    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+    android:visibility="gone"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tvInfo"
+    tools:visibility="visible" />
+
+  <TextView
+    android:id="@+id/tvCount"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="@+id/countLabel"
+    app:layout_constraintStart_toEndOf="@+id/countLabel"
+    app:layout_constraintTop_toTopOf="@+id/countLabel"
+    tools:text="12"
+    tools:visibility="visible" />
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rvRequests"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="5dp"
+    android:scrollbars="vertical"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    app:layout_constraintBottom_toTopOf="@id/btAddRequest"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/countLabel"
+    tools:listitem="@layout/viewholder_reset_password_request_item" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/btAddRequest"
+    style="@style/AppCompatEditButton"
+    android:text="@string/request_button"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+
+  <ProgressBar
+    android:id="@+id/progress_bar"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

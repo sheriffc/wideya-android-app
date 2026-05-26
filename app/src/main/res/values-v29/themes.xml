@@ -1,0 +1,5 @@
+<resources>
+    <style name="Theme.Wideya" parent="Base.Theme.Wideya">
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

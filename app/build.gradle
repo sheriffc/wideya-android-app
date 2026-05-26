@@ -1,0 +1,388 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id "org.jetbrains.kotlin.kapt"
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
+    id 'kotlinx-serialization'
+    id 'com.klaxit.hiddensecrets'
+}
+
+//apply plugin: 'kotlin-kapt'
+//https://developer.android.com/studio/write/java8-support
+android {
+    signingConfigs {
+        release {
+            storeFile file('../../_keys/wdy_android_signing_keystore')
+            keyAlias 'key0'
+            storePassword 'v5aZ?GybxV2L<!%BL7I4'
+            keyPassword 'v5aZ?GybxV2L<!%BL7I4'
+        }
+        staging {
+            storeFile file('../../_keys/wdy_android_signing_keystore')
+            keyAlias 'key0'
+            storePassword 'v5aZ?GybxV2L<!%BL7I4'
+            keyPassword 'v5aZ?GybxV2L<!%BL7I4'
+        }
+    }
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "uk.org.cgatechnologies.wideya"
+        minSdk 23
+        targetSdk 33
+        versionCode 14
+        versionName "3.3.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            moduleName "jnisgfdu03"
+            moduleName "jnisgfdu04"
+            moduleName "jnisgfdu05"
+            moduleName "jnisgfdu06"
+            moduleName "jnisgfdu07"
+            moduleName "jnisgfdu08"
+            abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+        }
+
+        multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+//                compilerArgumentProviders(
+//                        new RoomSchemaArgProvider(new File(projectDir, "schemas")
+//                        )
+//                )
+            }
+        }
+        signingConfig signingConfigs.release
+    }
+
+    buildTypes {
+        applicationVariants.all { variant ->
+            // auto-name APK build filenames for clear identification
+            // applies to all build types (debug, release, etc)
+            def fileName
+            def dateTime = new Date()
+            def dateFormatted = dateTime.format("yyyy-MM-dd")
+            def timeFormatted = dateTime.format("HH-mm")
+            def paddedVersionCode = String.format("%03d", defaultConfig.versionCode)
+            def versionName = defaultConfig.versionName
+
+            if (variant.buildType.name.contains("debug") ||
+                variant.buildType.name.contains("dev") ||
+                variant.buildType.name.contains("load") ||
+                variant.buildType.name.contains("local") ||
+                variant.buildType.name.contains("staging")) {
+
+                fileName = "${dateFormatted}_${timeFormatted}_Wi_De_Ya_${variant.buildType.name}_n${versionName}_v${paddedVersionCode}"
+
+
+            } else if (variant.buildType.name.contains("release")) {
+
+                fileName = "TSC Wi De Ya App Installer SCHOOL v-${paddedVersionCode}"
+
+            } else if (variant.buildType.name.contains("demo")) {
+
+                fileName = "TSC Wi De Ya App Installer DEMO v-${paddedVersionCode}"
+
+//            } else if (variant.buildType.name.equals("pilot")) {
+
+//                fileName = "TSC Wi De Ya App Installer Pilot v${paddedVersionCode}"
+
+            } else {
+                fileName = "error_build_type_not_found"
+            }
+
+            variant.outputs.all { output ->
+                // for APK splitting per ABI (arch type), add ABI name to APK filename
+                def abiName = output.filters.find { it.filterType == ABI }?.identifier
+                // exclude for the primary ABI intended for end-users, to reduce confusion/clutter
+                if (abiName == "arm64-v8a") {
+                    abiName = ""
+                } else if (abiName == null || abiName == "") {
+                    abiName = " universal"
+                } else {
+                    abiName = " " + abiName
+                }
+                outputFileName = fileName + abiName + ".apk"
+            }
+        }
+
+        debug {
+            buildConfigField "String", "SERVER_URL", server_url_production
+//            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            manifestPlaceholders = [
+                    applicationName: "@string/app_name",
+                    androidIcon: "@mipmap/ic_launcher",
+                    androidIconRound: "@mipmap/ic_launcher_round",
+            ]
+        }
+
+        dev {
+            initWith debug
+
+            buildConfigField "String", "SERVER_URL", server_url_development
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+            manifestPlaceholders = [
+                    applicationName: "@string/app_name_dev",
+                    androidIcon: "@mipmap/ic_launcher",
+                    androidIconRound: "@mipmap/ic_launcher_round",
+            ]
+        }
+
+        local {
+            initWith debug
+
+            buildConfigField "String", "SERVER_URL", "\"http://192.168.1.2:9007/api/\""
+            applicationIdSuffix ".local"
+            versionNameSuffix "-local"
+            manifestPlaceholders = [
+                    applicationName: "@string/app_name_local",
+                    androidIcon: "@mipmap/ic_launcher",
+                    androidIconRound: "@mipmap/ic_launcher_round",
+            ]
+        }
+
+        load {
+            initWith debug
+
+            buildConfigField "String", "SERVER_URL", server_url_load_test
+            applicationIdSuffix ".load"
+            versionNameSuffix "-load"
+            manifestPlaceholders = [
+                    applicationName: "@string/app_name_load",
+                    androidIcon: "@mipmap/ic_launcher",
+                    androidIconRound: "@mipmap/ic_launcher_round",
+            ]
+        }
+
+        demo {
+            //  initWith debug
+            buildConfigField "String", "SERVER_URL", server_url_demo
+            applicationIdSuffix ".demo"
+            versionNameSuffix "-demo"
+            manifestPlaceholders = [
+                    applicationName: "@string/app_name_demo",
+                    androidIcon: "@mipmap/ic_launcher_demo",
+                    androidIconRound: "@mipmap/ic_launcher_demo_round",
+            ]
+
+            splits {
+                abi {
+                    enable true
+                    reset()
+                    include "arm64-v8a"
+                    universalApk true
+                }
+            }
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        staging {
+            buildConfigField "String", "SERVER_URL", server_url_staging
+            applicationIdSuffix ".staging"
+            versionNameSuffix "-staging"
+            manifestPlaceholders = [
+                    applicationName: "@string/app_name_staging",
+                    androidIcon: "@mipmap/ic_launcher",
+                    androidIconRound: "@mipmap/ic_launcher_round",
+            ]
+
+            splits {
+                abi {
+                    enable true
+                    reset()
+                    include "arm64-v8a"
+                    universalApk true
+                }
+            }
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            buildConfigField "String", "SERVER_URL", "\"http://192.168.1.2:9007/api/\""
+            manifestPlaceholders = [
+                    applicationName: "@string/app_name",
+                    androidIcon: "@mipmap/ic_launcher",
+                    androidIconRound: "@mipmap/ic_launcher_round",
+            ]
+
+            splits {
+                abi {
+                    enable true
+                    reset()
+                    include "arm64-v8a", 'x86', 'x86_64', 'armeabi-v7a'
+                    universalApk true
+                }
+            }
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        // for now this build type is just a variant of debug, but with APK filesize reduction routines
+        //        pilot {
+        //            initWith debug
+        //
+        //            buildConfigField "String", "SERVER_URL", server_url_production
+        ////            applicationIdSuffix ".pilot"
+        //            versionNameSuffix "-pilot"
+        //            manifestPlaceholders = [ applicationName: "@string/app_name"]
+        //
+        //            // be careful with how APK splitting can conflict with the APK file naming routine above if not careful
+        //            // each APK filename for each ABI must be unique, or else the build fails with an unhelpful/non-specific error message
+        //            // currently fixed and working, but be aware in case of future issues
+        //            splits {
+        //                abi {
+        //                    enable true
+        //                    reset()
+        //                    include "arm64-v8a"
+        //                    universalApk true
+        //                }
+        //            }
+        //
+        //            // minify etc causes some small/subtle issues, definitely with initial data sync after clean install
+        //            // TODO: explore why this is happening so that we can turn minification back on
+        //            shrinkResources false
+        //            minifyEnabled false
+        //            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        //        }
+    }
+
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+        }
+    }
+
+  namespace 'uk.org.cgatechnologies.wideya'
+}
+
+dependencies {
+    //secugen (Fingerprint Scanner)
+    implementation files('libs/AlCamera.jar')
+    implementation files('libs/FDxSDKProFDAndroid.jar')
+    //stacktrace
+    implementation files('libs/trace.jar')
+    // Google Play Services
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
+    // Splash Screen
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
+    //security
+    implementation "androidx.security:security-crypto:1.1.0-alpha05"
+    //fingerprint template generation
+    implementation 'com.machinezoo.sourceafis:sourceafis:3.17.1'
+    implementation 'androidx.exifinterface:exifinterface:1.3.6'
+    //desugar
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
+    //lifecycle vm
+    def lifecycle_version = "2.6.1"
+    //viewmodel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    //coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    //room
+    def room_version = "2.5.1"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation("androidx.room:room-ktx:$room_version")
+    //sqlcipher
+//    implementation 'net.zetetic:android-database-sqlcipher:4.4.2@aar'
+    implementation 'net.zetetic:android-database-sqlcipher:4.5.3@aar'
+    // Permissions Manager
+    implementation 'com.github.li-yu:AKPermission:1.2.3'
+
+    // CameraX
+    def camerax_version = "1.2.2"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-view:${camerax_version}"
+    //WindowManager
+    implementation "androidx.window:window:1.1.0-beta01"
+
+    // Location Manager
+    implementation 'com.yayandroid:LocationManager:2.4.1'
+
+    //recycler
+    implementation "androidx.recyclerview:recyclerview:1.3.0"
+    implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
+
+//    implementation 'androidx.activity:activity-ktx:1.6.0-beta01'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+//    testImplementation 'junit:junit:4.13.2'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
+    implementation "com.github.haroldadmin:NetworkResponseAdapter:5.0.0"
+
+    //workmanager
+    def work_version = "2.8.1"
+    // Kotlin + coroutines
+    implementation("androidx.work:work-runtime-ktx:$work_version")
+
+    //aws
+    implementation 'com.amazonaws:aws-android-sdk-s3:2.57.0'
+
+    implementation 'com.github.highcharts:highcharts-android:10.3.2'
+
+    //sync
+    // https://mvnrepository.com/artifact/com.fasterxml.uuid/java-uuid-generator
+    implementation 'com.fasterxml.uuid:java-uuid-generator:4.1.0'
+
+}
+
+//class RoomSchemaArgProvider implements CommandLineArgumentProvider {
+//
+//    @InputDirectory
+//    @PathSensitive(PathSensitivity.RELATIVE)
+//    File schemaDir
+//
+//    RoomSchemaArgProvider(File schemaDir) {
+//        this.schemaDir = schemaDir
+//    }
+//
+//    @Override
+//    Iterable<String> asArguments() {
+//        // Note: If you're using KSP, you should change the line below to return
+//        // ["room.schemaLocation=${schemaDir.path}"]
+//        return ["-Aroom.schemaLocation=${schemaDir.path}"]
+//    }
+//}

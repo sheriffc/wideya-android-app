@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/nav_graph"
+  app:startDestination="@id/HomeFragment">
+  <fragment
+    android:id="@+id/HomeFragment"
+    android:name="uk.org.cgatechnologies.wideya.home_screen.HomeFragment"
+    android:label=""
+    tools:layout="@layout/fragment_home">
+    <action
+      android:id="@+id/action_HomeFragment_to_SchoolListFragment"
+      app:destination="@id/SchoolListFragment" />
+    <action
+      android:id="@+id/action_HomeFragment_to_SchoolProfileFragment"
+      app:destination="@id/SchoolProfileFragment" />
+    <action
+      android:id="@+id/action_HomeFragment_to_SyncFragment"
+      app:destination="@id/SyncFragment" />
+    <action
+      android:id="@+id/action_HomeFragment_to_SettingsFragment"
+      app:destination="@id/SettingsFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/LoginFragment"
+    android:name="uk.org.cgatechnologies.wideya.login.LoginFragment"
+    tools:layout="@layout/fragment_login">
+    <action
+      android:id="@+id/action_LoginFragment_to_ResetRequestsListFragment"
+      app:destination="@id/ResetRequestsListFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/ResetRequestsListFragment"
+    android:name="uk.org.cgatechnologies.wideya.login.ResetRequestsListFragment"
+    android:label="@string/reset_requests_list_fragment_label"
+    tools:layout="@layout/fragment_reset_requests_list">
+    <action
+      android:id="@+id/action_ResetRequestsListFragment_to_ResetPasswordRequestFragment"
+      app:destination="@id/ResetPasswordRequestFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/ResetPasswordRequestFragment"
+    android:name="uk.org.cgatechnologies.wideya.login.ResetPasswordRequestFragment"
+    android:label="@string/reset_password_request_fragment_label"
+    tools:layout="@layout/fragment_reset_password_request" />
+  <fragment
+    android:id="@+id/CameraFragment"
+    android:name="uk.org.cgatechnologies.wideya.common.camera.CameraFragment"
+    tools:label="@string/camera_fragment_label"
+    tools:layout="@layout/fragment_camera">
+    <argument
+      android:name="title"
+      android:defaultValue=""
+      app:argType="string" />
+    <argument
+      android:name="type"
+      android:defaultValue="0"
+      app:argType="integer" />
+    <argument
+      android:name="overlay"
+      android:defaultValue="false"
+      app:argType="boolean" />
+    <action
+      android:id="@+id/action_CameraFragment_to_PhotoFragment"
+      app:destination="@id/PhotoFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/PhotoFragment"
+    android:name="uk.org.cgatechnologies.wideya.common.camera.PhotoFragment"
+    tools:label="@string/photo_fragment_label">
+    <argument
+      android:name="title"
+      android:defaultValue=""
+      app:argType="string" />
+    <argument
+      android:name="image_path"
+      android:defaultValue="null"
+      app:argType="string"
+      app:nullable="true" />
+    <argument
+      android:name="image_type"
+      app:argType="integer" />
+  </fragment>
+  <fragment
+    android:id="@+id/SchoolListFragment"
+    android:name="uk.org.cgatechnologies.wideya.school_management.SchoolListFragment"
+    android:label="@string/school_list_fragment_label"
+    tools:layout="@layout/fragment_common_list">
+    <action
+      android:id="@+id/action_SchoolListFragment_to_SchoolProfileFragment"
+      app:destination="@id/SchoolProfileFragment"
+      app:enterAnim="@anim/nav_default_enter_anim"
+      app:exitAnim="@anim/nav_default_exit_anim">
+      <argument
+        android:name="school"
+        app:argType="uk.org.cgatechnologies.wideya.school_management.models.SchoolModel" />
+    </action>
+    <action
+      android:id="@+id/action_SchoolListFragment_to_SchoolProfileDetailsFragment"
+      app:destination="@id/SchoolProfileDetailsFragment"
+      app:enterAnim="@anim/nav_default_enter_anim"
+      app:exitAnim="@anim/nav_default_exit_anim" />
+  </fragment>
+  <fragment
+    android:id="@+id/SchoolProfileFragment"
+    android:name="uk.org.cgatechnologies.wideya.school_management.SchoolProfileFragment"
+    tools:label="@string/school_profile_fragment_label"
+    tools:layout="@layout/fragment_school_profile">
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_SchoolProfileDetailsFragment"
+      app:destination="@id/SchoolProfileDetailsFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_SchoolTimetableFragment"
+      app:destination="@id/SchoolTimetableFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_TeacherProfileFragment"
+      app:destination="@id/TeacherProfileFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_TeacherProfileDetailsFragment"
+      app:destination="@id/TeacherProfileDetailsFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_LearnerProfileFragment"
+      app:destination="@id/LearnerProfileFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_LearnerProfileDetailsFragment"
+      app:destination="@id/LearnerProfileDetailsFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_SchoolGroupProfileFragment"
+      app:destination="@id/SchoolGroupProfileFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_SchoolGroupProfileDetailsFragment"
+      app:destination="@id/SchoolGroupProfileDetailsFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_HomeFragment"
+      app:destination="@id/HomeFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_TeacherPayrollListFragment"
+      app:destination="@id/TeacherPayrollListFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_TeacherNonPayrollListFragment"
+      app:destination="@id/TeacherNonPayrollListFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_SchoolTeacherAttendanceListFragment"
+      app:destination="@id/SchoolTeacherAttendanceListFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_UnassignedLearnerListFragment"
+      app:destination="@id/UnassignedLearnerListFragment" />
+    <action
+      android:id="@+id/action_SchoolProfileFragment_to_LearnerSearchFragment"
+      app:destination="@id/LearnerSearchFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/SchoolProfileDetailsFragment"
+    android:name="uk.org.cgatechnologies.wideya.school_management.SchoolProfileDetailsFragment"
+    tools:label="@string/school_profile_details_fragment_label"
+    tools:layout="@layout/fragment_school_profile_details" />
+  <fragment
+    android:id="@+id/SchoolTimetableFragment"
+    android:name="uk.org.cgatechnologies.wideya.school_management.SchoolTimetableFragment"
+    tools:label="@string/school_timetable_fragment_label"
+    tools:layout="@layout/fragment_school_timetable">
+    <action
+      android:id="@+id/action_SchoolTimetableFragment_to_TeacherTimetableFragment"
+      app:destination="@id/TeacherTimetableFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/TeacherProfileFragment"
+    android:name="uk.org.cgatechnologies.wideya.teacher_management.TeacherProfileFragment"
+    android:label="@string/teacher_profile_fragment_label"
+    tools:layout="@layout/fragment_teacher_profile">
+    <argument
+      android:name="teacher"
+      app:argType="uk.org.cgatechnologies.wideya.teacher_management.models.TeacherModel" />
+    <action
+      android:id="@+id/action_TeacherProfileFragment_to_TeacherProfileDetailsFragment"
+      app:destination="@id/TeacherProfileDetailsFragment" />
+    <action
+      android:id="@+id/action_TeacherProfileFragment_to_TeacherProfileRemoveFragment"
+      app:destination="@id/TeacherProfileRemoveFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/TeacherProfileDetailsFragment"
+    android:name="uk.org.cgatechnologies.wideya.teacher_management.TeacherProfileDetailsFragment"
+    android:label="@string/teacher_profile_details_fragment_label"
+    tools:layout="@layout/fragment_teacher_profile_details">
+    <argument
+      android:name="teacherPayroll"
+      app:argType="uk.org.cgatechnologies.wideya.teacher_management.models.TeacherPayrollModel" />
+    <action
+      android:id="@+id/action_TeacherProfileDetailsFragment_to_FingerprintRegisterFragment"
+      app:destination="@id/FingerprintRegisterFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/TeacherTimetableFragment"
+    android:name="uk.org.cgatechnologies.wideya.teacher_management.TeacherTimetableFragment"
+    tools:label="@string/teacher_timetable_fragment_label"
+    tools:layout="@layout/fragment_teacher_timetable">
+    <argument
+      android:name="teacher"
+      app:argType="uk.org.cgatechnologies.wideya.teacher_management.models.TeacherModel"
+      app:nullable="true" />
+  </fragment>
+
+  <fragment
+    android:id="@+id/LearnerProfileFragment"
+    android:name="uk.org.cgatechnologies.wideya.learner_management.LearnerProfileFragment"
+    android:label="@string/learner_profile_fragment_label"
+    tools:layout="@layout/fragment_learner_profile">
+    <argument
+      android:name="learner"
+      app:argType="uk.org.cgatechnologies.wideya.school_management.models.LearnerAdmissionModel" />
+    <action
+      android:id="@+id/action_LearnerProfileFragment_to_LearnerProfileDetailsFragment"
+      app:destination="@id/LearnerProfileDetailsFragment" />
+    <action
+      android:id="@+id/action_LearnerProfileFragment_to_LearnerProfileRemoveFragment"
+      app:destination="@id/LearnerProfileRemoveFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/LearnerProfileDetailsFragment"
+    android:name="uk.org.cgatechnologies.wideya.learner_management.LearnerProfileDetailsFragment"
+    android:label="@string/learner_profile_details_fragment_label"
+    tools:layout="@layout/fragment_learner_profile_details">
+    <argument
+      android:name="schoolGroupUuid"
+      app:argType="string"
+      app:nullable="true" />
+  </fragment>
+  <fragment
+    android:id="@+id/UnassignedLearnerListFragment"
+    android:name="uk.org.cgatechnologies.wideya.school_management.UnassignedLearnerListFragment"
+    android:label="@string/unassigned_learners_fragment_label"
+    tools:layout="@layout/fragment_common_list">
+    <argument
+      android:name="has_group"
+      android:defaultValue="false"
+      app:argType="boolean" />
+    <argument
+      android:name="school_uuid"
+      android:defaultValue="@null"
+      app:argType="string"
+      app:nullable="true" />
+  </fragment>
+  <fragment
+    android:id="@+id/SchoolGroupProfileFragment"
+    android:name="uk.org.cgatechnologies.wideya.school_group_management.SchoolGroupProfileFragment"
+    android:label="@string/school_group_profile_fragment_label"
+    tools:layout="@layout/fragment_school_group_profile">
+    <argument
+      android:name="schoolGroup"
+      app:argType="uk.org.cgatechnologies.wideya.school_group_management.models.SchoolGroupModel" />
+    <action
+      android:id="@+id/action_SchoolGroupProfileFragment_to_SchoolGroupProfileDetailsFragment"
+      app:destination="@id/SchoolGroupProfileDetailsFragment" />
+    <action
+      android:id="@+id/action_SchoolGroupProfileFragment_to_LearnerProfileFragment"
+      app:destination="@id/LearnerProfileFragment" />
+    <action
+      android:id="@+id/action_SchoolGroupProfileFragment_to_LearnerProfileDetailsFragment"
+      app:destination="@id/LearnerProfileDetailsFragment" />
+    <action
+      android:id="@+id/action_SchoolGroupProfileFragment_to_UnassignedLearnerListFragment"
+      app:destination="@id/UnassignedLearnerListFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/SchoolGroupProfileDetailsFragment"
+    android:name="uk.org.cgatechnologies.wideya.school_group_management.SchoolGroupProfileDetailsFragment"
+    android:label="@string/school_group_profile_details_fragment_label"
+    tools:layout="@layout/fragment_school_group_profile_details" />
+  <fragment
+    android:id="@+id/TeacherProfileRemoveFragment"
+    android:name="uk.org.cgatechnologies.wideya.teacher_management.TeacherProfileRemoveFragment"
+    android:label="@string/teacher_remove_fragment_label"
+    tools:layout="@layout/fragment_entity_remove" />
+  <fragment
+    android:id="@+id/LearnerProfileRemoveFragment"
+    android:name="uk.org.cgatechnologies.wideya.learner_management.LearnerProfileRemoveFragment"
+    android:label="@string/teacher_remove_fragment_label"
+    tools:layout="@layout/fragment_entity_remove" />
+  <fragment
+    android:id="@+id/TeacherPayrollListFragment"
+    android:name="uk.org.cgatechnologies.wideya.teacher_management.TeacherPayrollListFragment"
+    android:label="@string/teacher_payroll_list_fragment_label"
+    tools:layout="@layout/fragment_common_list">
+
+    <action
+      android:id="@+id/action_TeacherPayrollListFragment_to_TeacherProfileDetailsFragment"
+      app:destination="@id/TeacherProfileDetailsFragment"
+      app:enterAnim="@anim/nav_default_enter_anim"
+      app:exitAnim="@anim/nav_default_exit_anim">
+      <argument
+        android:name="teacherPayroll"
+        app:argType="uk.org.cgatechnologies.wideya.teacher_management.models.TeacherPayrollModel" />
+    </action>
+  </fragment>
+  <fragment
+    android:id="@+id/TeacherNonPayrollListFragment"
+    android:name="uk.org.cgatechnologies.wideya.teacher_management.TeacherNonPayrollListFragment"
+    android:label="@string/teacher_non_payroll_list_fragment_label"
+    tools:layout="@layout/fragment_common_list">
+
+    <action
+      android:id="@+id/action_TeacherNonPayrollListFragment_to_TeacherProfileDetailsFragment"
+      app:destination="@id/TeacherProfileDetailsFragment"
+      app:enterAnim="@anim/nav_default_enter_anim"
+      app:exitAnim="@anim/nav_default_exit_anim">
+      <argument
+        android:name="teacherPayroll"
+        app:argType="uk.org.cgatechnologies.wideya.teacher_management.models.TeacherPayrollModel" />
+    </action>
+  </fragment>
+
+  <fragment
+    android:id="@+id/LearnerSearchFragment"
+    android:name="uk.org.cgatechnologies.wideya.learner_management.LearnerSearchFragment"
+    android:label="@string/learner_search_fragment_label"
+    tools:layout="@layout/fragment_common_list">
+    <action
+      android:id="@+id/action_LearnerSearchFragment_to_LearnerProfileDetailsFragment"
+      app:destination="@id/LearnerProfileDetailsFragment"
+      app:enterAnim="@anim/nav_default_enter_anim"
+      app:exitAnim="@anim/nav_default_exit_anim">
+      <argument
+        android:name="schoolGroupUuid"
+        app:argType="string"
+        app:nullable="true" />
+    </action>
+  </fragment>
+  <fragment
+    android:id="@+id/BiometricVerificationFragment"
+    android:name="uk.org.cgatechnologies.wideya.common.fragments.BiometricVerificationFragment"
+    tools:layout="@layout/fragment_biometric_verification">
+    <argument
+      android:name="attendanceStatus"
+      app:argType="string" />
+    <argument
+      android:name="personAttendanceModel"
+      app:argType="uk.org.cgatechnologies.wideya.school_management.models.PersonAttendanceModel" />
+  </fragment>
+  <fragment
+    android:id="@+id/FingerprintRegisterFragment"
+    android:name="uk.org.cgatechnologies.wideya.common.fragments.FingerprintRegisterFragment"
+    tools:layout="@layout/fragment_fingerprint_register">
+    <argument
+      android:name="title"
+      app:argType="string" />
+    <argument
+      android:name="fingerPosition"
+      app:argType="string" />
+    <argument
+      android:name="teacherModel"
+      app:argType="uk.org.cgatechnologies.wideya.teacher_management.models.TeacherModel" />
+  </fragment>
+
+  <fragment
+    android:id="@+id/SyncFragment"
+    android:name="uk.org.cgatechnologies.wideya.sync_device.SyncFragment"
+    android:label="@string/sync_fragement_label"
+    tools:layout="@layout/fragment_sync" />
+
+  <fragment
+    android:id="@+id/SettingsFragment"
+    android:name="uk.org.cgatechnologies.wideya.settings.SettingsFragment"
+    android:label="@string/settings_fragement_label"
+    tools:layout="@layout/fragment_settings" />
+
+  <fragment
+    android:id="@+id/SchoolLearnerAttendanceListFragment"
+    android:name="uk.org.cgatechnologies.wideya.school_management.SchoolLearnerAttendanceListFragment"
+    android:label="@string/learner_attendance_fragment_label"
+    tools:layout="@layout/fragment_learner_attendance_list" />
+
+  <fragment
+    android:id="@+id/SchoolTeacherAttendanceListFragment"
+    android:name="uk.org.cgatechnologies.wideya.school_management.SchoolTeacherAttendanceListFragment"
+    android:label="@string/teacher_attendance_fragment_label"
+    tools:layout="@layout/fragment_teacher_attendance_list">
+    <action
+      android:id="@+id/action_SchoolTeacherAttendanceListFragment_to_BiometricVerificationFragment"
+      app:destination="@id/BiometricVerificationFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/SchoolAnalysisFragment"
+    android:name="uk.org.cgatechnologies.wideya.analysis.SchoolAnalysisFragment"
+    android:label="@string/school_analysis_fragment_label"
+    tools:layout="@layout/fragment_school_analysis">
+    <action
+        android:id="@+id/action_SchoolAnalysisFragment_to_LearnerProfileFragment"
+        app:destination="@id/LearnerProfileFragment" />
+  </fragment>
+
+  <fragment
+    android:id="@+id/LearnerPerformanceFragment"
+    android:name="uk.org.cgatechnologies.wideya.learner_performance.LearnerPerformanceFragment"
+    android:label="Learner Performance"
+    tools:layout="@layout/fragment_learner_performance">
+    <action
+      android:id="@+id/action_LearnerPerformanceFragment_to_LearnerAssessmentFragment"
+      app:destination="@id/LearnerAssessmentFragment" />
+  </fragment>
+
+  <fragment
+    android:id="@+id/LearnerAssessmentFragment"
+    android:name="uk.org.cgatechnologies.wideya.learner_performance.LearnerAssessmentFragment"
+    android:label="Assess Learner"
+    tools:layout="@layout/fragment_learner_assessment" />
+</navigation>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/cvSchoolGroupLearner"
+  style="?attr/materialCardViewElevatedStyle"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="8dp"
+  android:checkable="true"
+  android:clickable="true"
+  android:focusable="true">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/clSchoolGroupLearnerListItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="8dp"
+    tools:ignore="RtlSymmetry">
+
+    <LinearLayout
+      android:id="@+id/v_select"
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:paddingStart="16dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/learnerIcon"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+      <CheckBox
+        android:id="@+id/cb_select"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <ImageView
+      android:id="@+id/learnerIcon"
+      android:layout_width="36dp"
+      android:layout_height="36dp"
+      android:layout_marginStart="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/tvLearnerName"
+      app:layout_constraintStart_toEndOf="@id/v_select"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/learners_128"
+      tools:ignore="ContentDescription" />
+
+    <TextView
+      android:id="@+id/tvLearnerName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="8dp"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/learnerIcon"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="Learner Name" />
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/tvEnrolmentStatus"-->
+    <!--            style="@style/RecyclerItemSubText"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="4dp"-->
+    <!--            tools:text="Enrolment Status"-->
+    <!--            app:layout_constraintStart_toStartOf="@+id/tvLearnerName"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/tvLearnerName" />-->
+
+    <TextView
+      android:id="@+id/tvLearnerIdentifier"
+      style="@style/RecyclerItemSubText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:layout_marginEnd="8dp"
+      app:layout_constraintEnd_toStartOf="@+id/tvSex"
+      app:layout_constraintStart_toStartOf="@+id/tvLearnerName"
+      app:layout_constraintTop_toBottomOf="@+id/tvLearnerName"
+      tools:text="Admission Num: xxxx" />
+
+    <TextView
+      android:id="@+id/tvSex"
+      style="@style/RecyclerItemSubText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:layout_marginEnd="8dp"
+      android:textAlignment="textEnd"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tvLearnerName"
+      tools:text="Gender" />
+
+    <TextView
+      android:id="@+id/tvAge"
+      style="@style/RecyclerItemSubText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:textAlignment="textEnd"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="@+id/tvSex"
+      app:layout_constraintTop_toBottomOf="@+id/tvSex"
+      tools:text="Age" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?attr/materialCardViewElevatedStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clSchoolLearnerListItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp">
+
+        <ImageView
+            android:id="@+id/learnerIcon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvLearnerName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/learners_128"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+          android:id="@+id/tvLearnerName"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/learnerIcon"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:text="Learner Name" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/labelLayout"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="@+id/tvLearnerName"
+          app:layout_constraintTop_toBottomOf="@+id/tvLearnerIdentifier">
+
+            <TextView
+              android:id="@+id/tvVisionLabel"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Vision"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvCognitionLabel"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:text="Cognition"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvMobilityLabel"
+              app:layout_constraintTop_toBottomOf="@+id/tvMobilityLabel"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvCommunicationLabel"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:text="Communication"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvSelfCareLabel"
+              app:layout_constraintTop_toBottomOf="@+id/tvSelfCareLabel"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvHearingLabel"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:text="Hearing"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvVisionLabel"
+              app:layout_constraintTop_toBottomOf="@+id/tvVisionLabel"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvMobilityLabel"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:text="Mobility"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvHearingLabel"
+              app:layout_constraintTop_toBottomOf="@+id/tvHearingLabel"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvSelfCareLabel"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:text="Self Care"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvCognitionLabel"
+              app:layout_constraintTop_toBottomOf="@+id/tvCognitionLabel"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvOtherConditionLabel"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:text="Other Condition"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvCommunicationLabel"
+              app:layout_constraintTop_toBottomOf="@+id/tvCommunicationLabel"
+              tools:visibility="visible" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+          android:id="@+id/tvLearnerIdentifier"
+          style="@style/RecyclerItemSubText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textAlignment="textEnd"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tvLearnerName"
+          tools:text="Admission Num: xxxx" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/disabilityValueLayout"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="4dp"
+          app:layout_constraintBottom_toBottomOf="@+id/labelLayout"
+          app:layout_constraintStart_toEndOf="@+id/labelLayout"
+          app:layout_constraintTop_toBottomOf="@+id/tvLearnerIdentifier">
+
+            <TextView
+              android:id="@+id/tvVision"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              tools:text="Vision"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvCognition"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvMobility"
+              app:layout_constraintTop_toBottomOf="@+id/tvMobility"
+              tools:text="Cognition"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvCommunication"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvSelfCare"
+              app:layout_constraintTop_toBottomOf="@+id/tvSelfCare"
+              tools:text="Communication"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvHearing"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvVision"
+              app:layout_constraintTop_toBottomOf="@+id/tvVision"
+              tools:text="Hearing"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvMobility"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="5dp"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvHearing"
+              app:layout_constraintTop_toBottomOf="@+id/tvHearing"
+              tools:text="Mobility"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvSelfCare"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvCognition"
+              app:layout_constraintTop_toBottomOf="@+id/tvCognition"
+              tools:text="Self Care"
+              tools:visibility="visible" />
+
+            <TextView
+              android:id="@+id/tvOtherCondition"
+              style="@style/RecyclerItemSubText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:visibility="gone"
+              app:layout_constraintStart_toStartOf="@+id/tvCommunication"
+              app:layout_constraintTop_toBottomOf="@+id/tvCommunication"
+              tools:text="Other Condition"
+              tools:visibility="visible" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

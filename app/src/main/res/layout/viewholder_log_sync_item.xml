@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginStart="8dp"
+  android:layout_marginTop="8dp"
+  android:layout_marginEnd="8dp">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <TextView
+      android:id="@+id/tvTimestamp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentStart="true"
+      android:ellipsize="end"
+      android:maxLines="2"
+      android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+      android:textSize="14sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+      android:id="@+id/tvMessage"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_alignParentEnd="true"
+      android:layout_marginStart="8dp"
+      android:maxLines="5"
+      android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+      android:textSize="14sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.18"
+      app:layout_constraintStart_toEndOf="@+id/tvTimestamp"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/tvUsername"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_alignParentEnd="true"-->
+    <!--            android:text="Username"-->
+    <!--            android:maxLines="2"-->
+    <!--            android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
+    <!--            android:textSize="10sp"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

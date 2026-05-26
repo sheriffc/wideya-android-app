@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:padding="20dp">
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/bt_close"
+    android:layout_width="35dp"
+    android:layout_height="35dp"
+    android:background="@drawable/bg_close_button"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:ignore="ContentDescription" />
+
+  <TextView
+    android:id="@+id/tv_table_title"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/items_margin_top"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/bt_close"
+    tools:text="Add/Edit Timetable Entry" />
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/ti_table_day"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:hint="@string/day"
+    app:endIconDrawable="@drawable/ic_dropdown_arrow"
+    app:endIconMode="custom"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tv_table_title"
+    app:placeholderText="@string/day">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/et_table_day"
+      style="@style/TextInput.DisabledByDefault.WithDialog"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/ti_table_start_time"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/items_margin_top"
+    android:hint="@string/start_time"
+    app:endIconDrawable="@drawable/ic_calendar"
+    app:endIconMode="custom"
+    app:layout_constraintEnd_toStartOf="@+id/ti_table_end_time"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ti_table_day"
+    app:placeholderText="@string/start_time">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/et_table_start_time"
+      style="@style/TextInput.DisabledByDefault.WithDialog"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/ti_table_end_time"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="15dp"
+    android:hint="@string/end_time"
+    app:endIconDrawable="@drawable/ic_calendar"
+    app:endIconMode="custom"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@id/ti_table_start_time"
+    app:layout_constraintTop_toTopOf="@id/ti_table_start_time"
+    app:placeholderText="@string/end_time">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/et_table_end_time"
+      style="@style/TextInput.DisabledByDefault.WithDialog"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/ti_table_subject"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/items_margin_top"
+      android:hint="@string/subject"
+      app:endIconDrawable="@drawable/ic_dropdown_arrow"
+      app:endIconMode="custom"
+      app:layout_constraintEnd_toStartOf="@id/ti_table_subject_other"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/ti_table_start_time"
+      app:placeholderText="@string/subject">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_table_subject"
+        style="@style/TextInput.DisabledByDefault.WithDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/ti_table_subject_other"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="15dp"
+      android:hint="@string/subject_other"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/ti_table_subject"
+      app:layout_constraintTop_toTopOf="@id/ti_table_subject"
+      app:placeholderText="@string/subject_other">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_table_subject_other"
+        style="@style/TextInput.DisabledByDefault"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textNoSuggestions" />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/bt_table_save"
+    style="@style/AppCompatSaveButton"
+    android:layout_marginTop="@dimen/items_margin_top"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/ti_table_subject" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/bt_table_edit"
+    style="@style/AppCompatEditButton"
+    android:layout_marginTop="@dimen/items_margin_top"
+    app:layout_constraintEnd_toStartOf="@id/bt_table_remove"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/ti_table_subject" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/bt_table_remove"
+    style="@style/AppCompatRemoveButton"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@id/bt_table_edit"
+    app:layout_constraintTop_toTopOf="@id/bt_table_edit"
+    tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

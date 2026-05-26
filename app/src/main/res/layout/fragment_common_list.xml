@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/svCommonSearchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/md_theme_light_inverseOnSurface"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="@string/search_bar_placeholder" />
+
+    <TextView
+        android:id="@+id/tvPreText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/lorem_ipsum"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/svCommonSearchBar"
+        app:layout_constraintEnd_toEndOf="@+id/svCommonSearchBar"
+        app:layout_constraintTop_toBottomOf="@+id/svCommonSearchBar" />
+
+    <HorizontalScrollView
+        android:id="@+id/sv_multiselect"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPreText"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/ll_multiselect"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp" />
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/countLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="@string/count"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/svCommonSearchBar"
+        app:layout_constraintTop_toBottomOf="@+id/sv_multiselect"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/countTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/countLabel"
+        app:layout_constraintStart_toEndOf="@+id/countLabel"
+        app:layout_constraintTop_toTopOf="@+id/countLabel"
+        tools:text="0"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/svCommonSearchBar"
+        app:layout_constraintStart_toStartOf="@+id/svCommonSearchBar"
+        app:layout_constraintTop_toBottomOf="@+id/sv_multiselect"
+        tools:visibility="visible" />
+
+    <CheckBox
+        android:id="@+id/cb_select_all"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:paddingHorizontal="5dp"
+        android:text="@string/multiselect_select_all"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/countLabel"
+        app:layout_constraintEnd_toEndOf="@id/svCommonSearchBar"
+        app:layout_constraintTop_toBottomOf="@id/sv_multiselect"
+        tools:visibility="visible" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCommonList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@id/bt_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/countLabel"
+        tools:listitem="@layout/viewholder_school_learner_list_item" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_add"
+        style="@style/AppCompatAddButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/bt_assign"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_assign"
+        style="@style/AppCompatEditButton"
+        android:layout_marginStart="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bt_add" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

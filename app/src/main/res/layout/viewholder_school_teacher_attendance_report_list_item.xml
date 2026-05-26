@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  style="?attr/materialCardViewElevatedStyle"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="8dp">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp">
+
+    <ImageView
+      android:id="@+id/reportIcon"
+      android:layout_width="36dp"
+      android:layout_height="36dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/tvReportName"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/ic_checklist"
+      tools:ignore="ContentDescription" />
+
+    <TextView
+      android:id="@+id/tvReportName"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      app:layout_constraintStart_toEndOf="@+id/reportIcon"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="DayofWeek, Day Month Year" />
+
+    <TextView
+      android:id="@+id/tvAbsentTally"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:layout_marginBottom="8dp"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      app:layout_constraintBottom_toTopOf="@+id/tvAbsentTitle"
+      app:layout_constraintEnd_toEndOf="@+id/tvAbsentTitle"
+      app:layout_constraintStart_toStartOf="@+id/tvAbsentTitle"
+      app:layout_constraintTop_toBottomOf="@+id/tvReportName"
+      tools:text="999" />
+
+    <TextView
+      android:id="@+id/tvAbsentTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="64dp"
+      android:text="@string/absent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/reportIcon" />
+
+    <TextView
+      android:id="@+id/tvLateTally"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:layout_marginBottom="8dp"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      app:layout_constraintBottom_toTopOf="@+id/tvLateTitle"
+      app:layout_constraintEnd_toEndOf="@+id/tvLateTitle"
+      app:layout_constraintStart_toStartOf="@+id/tvLateTitle"
+      app:layout_constraintTop_toBottomOf="@+id/tvReportName"
+      tools:text="999" />
+
+    <TextView
+      android:id="@+id/tvLateTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:text="@string/late"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/tvAbsentTitle" />
+
+    <TextView
+      android:id="@+id/tvPresentTally"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:layout_marginBottom="8dp"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      app:layout_constraintBottom_toTopOf="@+id/tvPresentTitle"
+      app:layout_constraintEnd_toEndOf="@+id/tvPresentTitle"
+      app:layout_constraintStart_toStartOf="@+id/tvPresentTitle"
+      app:layout_constraintTop_toBottomOf="@+id/tvReportName"
+      tools:text="999" />
+
+    <TextView
+      android:id="@+id/tvPresentTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:text="@string/on_time"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/tvLateTitle" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

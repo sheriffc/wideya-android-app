@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginBottom="10dp"
+  android:orientation="horizontal">
+
+  <TextView
+    android:id="@+id/tv_time_start"
+    android:layout_width="@dimen/school_timetable_time_width"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingHorizontal="@dimen/school_timetable_horizontal_padding"
+    android:textColor="@color/black"
+    android:textSize="@dimen/timetable_item_font"
+    tools:text="08:00" />
+
+  <TextView
+    android:id="@+id/tv_time_end"
+    android:layout_width="@dimen/school_timetable_time_width"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingHorizontal="@dimen/school_timetable_horizontal_padding"
+    android:textColor="@color/black"
+    android:textSize="@dimen/timetable_item_font"
+    tools:text="09:00" />
+
+  <LinearLayout
+    android:id="@+id/ll_subjects"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/school_timetable_horizontal_padding" />
+
+</LinearLayout>

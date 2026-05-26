@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array
+        name="common_array">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>6</item>
+        <item>8</item>
+        <item>12</item>
+        <item>16</item>
+        <item>24</item>
+    </integer-array>
+</resources>

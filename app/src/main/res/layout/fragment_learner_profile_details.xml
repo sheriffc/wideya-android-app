@@ -1,0 +1,1036 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:fitsSystemWindows="true"
+  tools:context=".learner_management.LearnerProfileDetailsFragment">
+
+  <androidx.core.widget.NestedScrollView
+    android:id="@+id/nestedScrollView"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toTopOf="@id/action_barrier"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginBottom="@dimen/form_bottom_margin">
+
+      <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvLearnerSection"
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:padding="8dp">
+
+          <TextView
+            android:id="@+id/tvLearnerSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/learner_details"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerAdmissionNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/admission_number"
+            app:layout_constraintEnd_toStartOf="@+id/tlLearnerId"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLearnerSection"
+            app:placeholderText="@string/admission_number">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerAdmissionNumber"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="number" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="@string/learner_uid"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tlLearnerAdmissionNumber"
+            app:layout_constraintTop_toBottomOf="@+id/tvLearnerSection"
+            app:placeholderText="@string/learner_uid">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerId"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="textCapCharacters|textNoSuggestions" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlLearnerAdmissionNumber">
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlLearnerFirstName"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:layout_marginEnd="8dp"
+              android:hint="@string/first_name"
+              app:layout_constraintEnd_toStartOf="@+id/tlLearnerNin"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="First Name">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLearnerFirstName"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters|textNoSuggestions" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlLearnerNin"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="8dp"
+              android:layout_marginTop="8dp"
+              android:hint="@string/nin_field_label"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@+id/tlLearnerFirstName"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="@string/nin_field_label">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLearnerNin"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters|textNoSuggestions"
+                android:nextFocusDown="@+id/etLearnerNin" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRow3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clRow2">
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlLearnerMiddleName"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:layout_marginEnd="8dp"
+              android:hint="@string/middle_name"
+              app:layout_constraintEnd_toStartOf="@+id/tlLearnerSex"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="Middle Name">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLearnerMiddleName"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters|textNoSuggestions" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlLearnerSex"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="8dp"
+              android:layout_marginTop="8dp"
+              android:hint="@string/gender"
+              app:endIconDrawable="@drawable/ic_dropdown_arrow"
+              app:endIconMode="custom"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@+id/tlLearnerMiddleName"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="Gender">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLearnerSex"
+                style="@style/TextInput.DisabledByDefault.WithDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRow4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clRow3">
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlLearnerLastName"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:layout_marginEnd="8dp"
+              android:hint="@string/last_name"
+              app:layout_constraintEnd_toStartOf="@+id/tlLearnerStartDate"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="Last Name">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLearnerLastName"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters|textNoSuggestions"
+                android:nextFocusDown="@+id/etLearnerNin" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlLearnerStartDate"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="8dp"
+              android:layout_marginTop="8dp"
+              android:hint="@string/date_admission"
+              app:endIconDrawable="@drawable/ic_calendar"
+              app:endIconMode="custom"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@id/tlLearnerLastName"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="Date of Admission">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLearnerStartDate"
+                style="@style/TextInput.DisabledByDefault.WithDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRow5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clRow4">
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlLearnerDob"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:layout_marginEnd="8dp"
+              android:hint="@string/date_of_birth"
+              app:endIconDrawable="@drawable/ic_calendar"
+              app:endIconMode="custom"
+              app:layout_constraintEnd_toStartOf="@id/clAgeBlock"
+              app:layout_constraintHorizontal_weight="0.5"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="Date of Birth">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLearnerDob"
+                style="@style/TextInput.DisabledByDefault.WithDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+              android:id="@+id/clAgeBlock"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="8dp"
+              app:layout_constraintBottom_toBottomOf="@id/tlLearnerDob"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_weight="0.5"
+              app:layout_constraintStart_toEndOf="@id/tlLearnerDob"
+              app:layout_constraintTop_toTopOf="@id/tlLearnerDob">
+
+              <TextView
+                android:id="@+id/tvLearnerAgeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="@string/age"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvLearnerAgeValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+              <TextView
+                android:id="@+id/tvLearnerAgeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvLearnerAgeLabel"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="xx" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerLanguage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/strongest_language"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toStartOf="@+id/tlLearnerMaternalStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clRow5"
+            app:placeholderText="Strongest Language Spoken">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerLanguage"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerMaternalStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="@string/pregnancy_maternal_status"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tlLearnerLanguage"
+            app:layout_constraintTop_toBottomOf="@+id/clRow5"
+            app:placeholderText="Pregnancy/Maternal Status">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerMaternalStatus"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <CheckBox
+            android:id="@+id/cbLearnerEndReason"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:text="@string/learner_left_school"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlLearnerLanguage"
+            tools:visibility="visible" />
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerEndDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/end_date"
+            android:visibility="gone"
+            app:endIconDrawable="@drawable/ic_calendar"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toStartOf="@+id/tlLearnerEndReason"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbLearnerEndReason"
+            app:placeholderText="End Date"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerEndDate"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerEndReason"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="@string/reason_end_date"
+            android:visibility="gone"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tlLearnerEndDate"
+            app:layout_constraintTop_toBottomOf="@+id/cbLearnerEndReason"
+            app:placeholderText="Reason for End Date"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerEndReason"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerEndReasonOther"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/specify"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlLearnerEndDate"
+            app:placeholderText="Specify"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerEndReasonOther"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="textCapSentences|textNoSuggestions" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+      <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvLearnerClassroomSection"
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/cvLearnerSection">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:padding="8dp">
+
+          <TextView
+            android:id="@+id/tvLearnerClassroomSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/learner_classroom"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerClassroom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/classroom_assignment"
+            android:visibility="visible"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLearnerClassroomSection"
+            app:placeholderText="Classroom Assignment"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerClassroom"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlPrevYearGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Previous Year Group"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tlLearnerClassroom"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etPrevYearGroup"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+      <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvLearnerDisabilitySection"
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/cvLearnerClassroomSection">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:padding="8dp">
+
+          <TextView
+            android:id="@+id/tvLearnerDisabilitySection"
+            style="@style/FormCardHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/learner_needs_assessment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerDisabilityVision"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/vision"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toStartOf="@+id/tlLearnerDisabilityHearing"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLearnerDisabilitySection"
+            app:placeholderText="Vision">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerDisabilityVision"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerDisabilityMobility"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/mobility"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toStartOf="@+id/tlLearnerDisabilityCognition"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlLearnerDisabilityVision"
+            app:placeholderText="Mobility">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerDisabilityMobility"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerDisabilitySelfcare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/self_care"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toStartOf="@+id/tlLearnerDisabilityCommunication"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlLearnerDisabilityMobility"
+            app:placeholderText="Self-Care">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerDisabilitySelfcare"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerDisabilityOtherCondition"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/common_conditions"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="@+id/tlLearnerDisabilitySelfcare"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlLearnerDisabilitySelfcare"
+            app:placeholderText="Other Common Conditions">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerDisabilityOtherCondition"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerDisabilityHearing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="@string/hearing"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tlLearnerDisabilityVision"
+            app:layout_constraintTop_toBottomOf="@+id/tvLearnerDisabilitySection"
+            app:placeholderText="Hearing">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerDisabilityHearing"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerDisabilityCognition"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="@string/cognition"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tlLearnerDisabilityMobility"
+            app:layout_constraintTop_toBottomOf="@+id/tlLearnerDisabilityHearing"
+            app:placeholderText="Cognition">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerDisabilityCognition"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlLearnerDisabilityCommunication"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="@string/communication"
+            app:endIconDrawable="@drawable/ic_dropdown_arrow"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tlLearnerDisabilitySelfcare"
+            app:layout_constraintTop_toBottomOf="@+id/tlLearnerDisabilityCognition"
+            app:placeholderText="Communication">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etLearnerDisabilityCommunication"
+              style="@style/TextInput.DisabledByDefault.WithDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+      <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvGuardianSection"
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/cvLearnerDisabilitySection">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:padding="8dp">
+
+          <TextView
+            android:id="@+id/tvGuardianSection"
+            style="@style/FormCardHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guardian_details"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+          <Button
+            android:id="@+id/btnLoadGuardian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/load_guardian"
+            android:visibility="gone"
+            app:icon="@drawable/ic_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+          <ImageView
+            android:id="@+id/ivGuardianPortrait"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLoadGuardian"
+            app:srcCompat="@drawable/ic_account_circle_black_24dp"
+            tools:ignore="ContentDescription" />
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clGuardianRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvGuardianSection">
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlGuardianFirstName"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:layout_marginEnd="8dp"
+              android:hint="@string/first_name"
+              app:layout_constraintEnd_toStartOf="@+id/tlGuardianRelationToLearner"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="First Name">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGuardianFirstName"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters|textNoSuggestions" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlGuardianRelationToLearner"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="8dp"
+              android:layout_marginTop="8dp"
+              android:hint="@string/relationship_to_learner"
+              app:endIconDrawable="@drawable/ic_dropdown_arrow"
+              app:endIconMode="custom"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@id/tlGuardianFirstName"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="Relationship to Learner">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGuardianRelationToLearner"
+                style="@style/TextInput.DisabledByDefault.WithDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clGuardianRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clGuardianRow1">
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlGuardianMiddleName"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:layout_marginEnd="8dp"
+              android:hint="@string/middle_name"
+              app:layout_constraintEnd_toStartOf="@+id/tlGuardianSex"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="Middle Name">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGuardianMiddleName"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters|textNoSuggestions" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlGuardianSex"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="8dp"
+              android:layout_marginTop="8dp"
+              android:hint="@string/gender"
+              app:endIconDrawable="@drawable/ic_dropdown_arrow"
+              app:endIconMode="custom"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@+id/tlGuardianMiddleName"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="Gender">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGuardianSex"
+                style="@style/TextInput.DisabledByDefault.WithDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clGuardianRow3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clGuardianRow2">
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlGuardianLastName"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:layout_marginEnd="8dp"
+              android:hint="@string/last_name"
+              app:layout_constraintEnd_toStartOf="@+id/tlGuardianNin"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="@+id/clGuardianRow3"
+              app:placeholderText="Last Name">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGuardianLastName"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters|textNoSuggestions" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlGuardianNin"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="8dp"
+              android:layout_marginTop="8dp"
+              android:hint="@string/nin_field_label"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@+id/tlGuardianLastName"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText="@string/nin_field_label">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGuardianNin"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters|textNoSuggestions" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clGuardianRow4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clGuardianRow3">
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlGuardianPhone1"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:layout_marginEnd="8dp"
+              android:hint="@string/phone_number_1"
+              app:layout_constraintEnd_toStartOf="@+id/tlGuardianPhone2"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText=""
+              app:prefixText="0">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGuardianPhone1"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:nextFocusDown="@+id/etGuardianPhone2" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlGuardianPhone2"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="8dp"
+              android:layout_marginTop="8dp"
+              android:hint="@string/phone_number_2"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@+id/tlGuardianPhone1"
+              app:layout_constraintTop_toTopOf="parent"
+              app:placeholderText=""
+              app:prefixText="0">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGuardianPhone2"
+                style="@style/TextInput.DisabledByDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:nextFocusDown="@+id/etGuardianAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlGuardianAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:hint="@string/address"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tlGuardianEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clGuardianRow4"
+            app:placeholderText="Address">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etGuardianAddress"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="textCapWords|textNoSuggestions" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlGuardianEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:layout_marginStart="8dp"
+            android:hint="@string/email"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tlGuardianAddress"
+            app:layout_constraintTop_toBottomOf="@+id/clGuardianRow4"
+            app:placeholderText="Email">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etGuardianEmail"
+              style="@style/TextInput.DisabledByDefault"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="textEmailAddress|textNoSuggestions" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+  <androidx.constraintlayout.widget.Barrier
+    android:id="@+id/action_barrier"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:barrierDirection="top"
+    app:constraint_referenced_ids="bt_edit,bt_save,bt_remove" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/bt_edit"
+    style="@style/AppCompatEditButton"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/bt_remove"
+    app:layout_constraintStart_toStartOf="parent" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/bt_save"
+    style="@style/AppCompatSaveButton"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:visibility="gone" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/bt_remove"
+    style="@style/AppCompatRemoveButton"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@id/bt_edit"
+    tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

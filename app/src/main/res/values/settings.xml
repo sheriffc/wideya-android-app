@@ -1,0 +1,3 @@
+<resources>
+    <string name="stacktrace_url_suffix">/api/trace</string>
+</resources>

@@ -1,0 +1,455 @@
+<resources>
+  <string name="app_name">Wi De Ya</string>
+  <string name="app_name_dev">Wi De Ya (DEV)</string>
+  <string name="app_name_load">Wi De Ya (LOAD)</string>
+  <string name="app_name_local">Wi De Ya (LOCAL)</string>
+  <string name="app_name_demo">Wi De Ya (DEMO)</string>
+  <string name="app_name_staging">Wi De Ya (STAGING)</string>
+  <string name="action_settings">Settings</string>
+  <string name="multiselect_select_all">Select all</string>
+
+  <!-- Strings used for fragments for navigation -->
+  <string name="home_fragment_label">Welcome, User</string>
+
+  <!--    General-->
+  <string name="date">Date</string>
+  <string name="complete">Complete</string>
+  <string name="save">Save</string>
+  <string name="ok">OK</string>
+  <string name="confirm">Confirm</string>
+  <string name="cancel">Cancel</string>
+  <string name="dismiss">Dismiss</string>
+  <string name="clear">Clear</string>
+  <string name="delete">Delete</string>
+  <string name="submit">Submit</string>
+  <string name="send">Send</string>
+  <string name="none">None</string>
+  <string name="na">N/A</string>
+  <string name="percentage">%d%%</string>
+  <string name="divide">%d/%d</string>
+  <string name="wideya_url">https://wideya.org</string>
+
+  <!--    Authentication-->
+  <string name="login_fragment_label"/>
+  <string name="reset_requests_list_fragment_label"/>
+  <string name="reset_password_request_fragment_label"/>
+  <string name="sign_in_to_continue">Sign in to continue</string>
+  <string name="reset_password">Forgotten your password?</string>
+  <string name="logout">Logout</string>
+  <string name="confirm_logout_message">Are you sure you want to log out?</string>
+  <string name="email_username">Email or Username</string>
+  <string name="username">Username</string>
+  <string name="password">Password</string>
+  <string name="new_password">New Password</string>
+  <string name="confirm_password">Confirm New Password</string>
+  <string name="sign_in">Sign In</string>
+  <string name="register_now">Register New Account</string>
+  <string name="request_reset">Submit Request</string>
+  <string name="request_title">By %s at %s</string>
+  <string name="request_status">Status: %s</string>
+  <string name="request_remarks">Remarks: %s</string>
+  <string name="request_success_dialog_title">Request Sent</string>
+  <string name="request_success_dialog_message">
+    This request will need to be approved by your designated member of
+    District Staff (e.g. TSC IT Officer or MBSSE SQAO),
+    so please contact them and give your username so they can approve your request.</string>
+  <string name="request_cancel_confirm_message">
+    Are you sure you want to cancel the password reset request?</string>
+  <string name="request_list_title">Password Reset</string>
+  <string name="request_list_info">
+    If you have forgotten your password, you can submit a request to reset your password.
+    Submitting this form requires internet access, so please ensure you are connected to the internet.
+
+    \n\nThis request will need to be approved by your designated member of District Staff (e.g. TSC IT Officer or MBSSE SQAO),
+    so after submitting please contact them and give your username so they can approve your request.
+
+    \n\nOnce you have submitted a password reset request, you will be able to track its status below.
+
+    \n\nYou may also cancel the request yourself, if you later remember your password.
+  </string>
+  <string name="request_button">Request A Password Reset</string>
+  <string name="request_heading_status_existing">Status of Existing Requests:</string>
+
+  <!--  Analysis Fragment-->
+  <string name="today">Today</string>
+  <string name="next_day">Next Day</string>
+  <string name="next_week">Next Week</string>
+  <string name="previous_day">Previous Day</string>
+  <string name="previous_week">Previous Week</string>
+
+  <!--    Camera Fragment-->
+  <string name="camera_fragment_label">Camera</string>
+  <string name="camera_retake">Retake</string>
+  <string name="camera_confirm">Confirm</string>
+  <string name="scan">Scan</string>
+  <string name="rotate">Rotate</string>
+  <string name="snap">Snap</string>
+  <string name="photo_fragment_label">Photo Viewer</string>
+  <string name="request_camera_permission">The application requires access to the camera
+    in order to function properly</string>
+  <string name="camera_overlay_guide">Face should fill the outlined area</string>
+  <string name="camera_denied_title">Camera Permission Denied</string>
+  <string name="camera_denied_message">This app does not have permission to use your phone\'s camera.
+    Please grant permission from Settings and try again.</string>
+  <string name="sync_fragement_label">Sync</string>
+  <string name="settings_fragement_label">Settings</string>
+
+  <!--    Confirmation Dialogs-->
+  <string name="dialog_title">Are you sure?</string>
+  <string name="dialog_settings">Settings</string>
+  <string name="dialog_discard">Discard any changes made</string>
+  <string name="dialog_delete">This will delete the selected entry</string>
+
+  <!--    Permission Requests-->
+  <string name="permission_allow">Allow</string>
+  <string name="permission_deny">Deny</string>
+
+  <string name="request_notification_permission">This app requires notifications to be enabled
+    to show sync updates when app is running in the background</string>
+  <string name="request_location_permission">This app requires access to location data
+    in order to function properly</string>
+  <string name="enable_gps">Please enable GPS on your device</string>
+  <string name="location">Location</string>
+  <string name="saved_location">Last Saved Location: \n%s, %s\n\nLast Updated: %s</string>
+  <string name="location_debug">Show Last Saved Location</string>
+
+  <string name="incorrect_device_date">Incorrect Device Date</string>
+  <string name="incorrect_device_date_subtitle_max_attendance_date">
+    Please set your device to the correct date to continue.
+    \nYour device date cannot be before your latest attendance report date.
+  </string>
+
+  <!--    School Management-->
+  <string name="school_list_fragment_label">My School List</string>
+  <string name="school_profile_fragment_label">School Profile</string>
+  <string name="school_profile_details_fragment_label">School Profile Details</string>
+  <string name="school_timetable_fragment_label">School Timetable</string>
+  <string name="school_analysis_fragment_label">School Analysis</string>
+
+  <!--    School Management - School Details-->
+  <string name="school_details">School Details</string>
+  <string name="school_timetable">Timetable</string>
+  <string name="school_name">School Name</string>
+  <string name="education_level">Education Level</string>
+  <string name="emis_id">EMIS ID</string>
+  <string name="payroll_sid">Payroll SID</string>
+  <string name="waec_id">WAEC ID</string>
+  <string name="district_office">District Office</string>
+  <string name="chiefdom">Chiefdom</string>
+  <string name="section">Section</string>
+  <string name="town">Town</string>
+  <string name="school_address">School Address</string>
+  <string name="adding_new_school">Add New School</string>
+
+  <!--    School Management - School Timetable-->
+  <string name="school_timetable_title">School Weekly Timetable</string>
+  <string name="empty_school_timetable">No timetable found for this school</string>
+  <string name="period_placeholder">------</string>
+
+  <!--Teacher Management-->
+  <string name="teacher_profile_fragment_label">Teacher Profile</string>
+  <string name="teacher_profile_details_fragment_label">Teacher Profile Details</string>
+  <string name="teacher_payroll_list_fragment_label">Add New Teacher from Payroll</string>
+  <string name="teacher_non_payroll_list_fragment_label">Add Non-Payroll Teacher</string>
+  <string name="teacher_remove_fragment_label">Remove Teacher</string>
+  <string name="teacher_attendance_fragment_label">Teacher Attendance</string>
+  <string name="teacher_personal_details">Teacher Personal Details</string>
+  <string name="nassit_number">NASSIT Number</string>
+  <string name="teacher_employment_details">Teacher Employment Details</string>
+  <string name="employment_status">Employment Status</string>
+  <string name="pin_code">PIN Code</string>
+  <string name="teacher_role">Teacher Role</string>
+  <string name="teaching_at_this_school_since">Teaching at THIS school since..?</string>
+  <string name="teacher_left_school">Teacher Left School</string>
+  <string name="contact_details">Contact Details</string>
+  <string name="present">Present</string>
+  <string name="on_time">On Time</string>
+  <string name="late">Late</string>
+  <string name="half_day">Half Day</string>
+  <string name="absent">Absent</string>
+  <string name="not_reported">Not Reported</string>
+  <string name="not_submitted">Not Submitted</string>
+
+  <!--Teacher Management - BiometricVerification-->
+  <string name="attendance_title">%s - Teacher Attendance</string>
+  <string name="photo_verification">Photo Verification</string>
+  <string name="fingerprint_verification">Fingerprint Verification</string>
+  <string name="no_fingerprints_registered">No Fingerprints Registered</string>
+  <string name="no_profile_photo_registered">No Profile Photo Registered</string>
+  <string name="warning_low_quality">Low quality: Please try again</string>
+  <string name="warning_lowest_quality">Lowest quality: Please try again</string>
+  <string name="error_scanning_finger">Error scanning finger: Please try again</string>
+  <string name="fingerprint_verified">Fingerprint verified</string>
+  <string name="error_no_match">No match: Please try again</string>
+  <string name="guide_scanning_finger">Scanning fingerprint… %skeep finger on scanner</string>
+  <string name="fingerprints">Fingerprints</string>
+  <string name="left_index">Left Index</string>
+  <string name="left_thumb">Left Thumb</string>
+  <string name="right_thumb">Right Thumb</string>
+  <string name="right_index">Right Index</string>
+  <string name="submit_teacher_attendance_title">Submit Teacher Attendance</string>
+  <string name="submit_attendance_message">
+    This attendance sheet is complete, do you want to submit it?
+    After submitting, all further edits for today will be automatically resubmitted.
+  </string>
+
+  <!--Teacher Management / Timetable-->
+  <string name="teacher_timetable_fragment_label">Teacher Timetable</string>
+  <string name="teacher_timetable_title">Teacher Weekly Timetable: %s, %s</string>
+  <string name="empty_teacher_timetable">No timetable found for this teacher</string>
+  <string name="subject">Subject</string>
+  <string name="subject_other">Other Subject</string>
+  <string name="day">Day</string>
+  <string name="end_time">End Time</string>
+  <string name="start_time">Start Time</string>
+  <string name="timetable_entry_title">%s Timetable Entry</string>
+  <string name="add">Add</string>
+  <string name="edit">Edit</string>
+  <string name="edit_remove">Edit/Remove</string>
+  <string name="overlap_entry_title">Error: Time Overlap</string>
+  <string name="overlap_entry_message">The time of this lesson overlaps with an existing one.
+    \nPlease edit times before saving.</string>
+  <string name="add_new_lesson">+ ADD NEW LESSON</string>
+
+  <!--Learner Management-->
+  <string name="learner_profile_fragment_label">Learner Profile</string>
+  <string name="learner_profile_details_fragment_label">Learner Profile Details</string>
+  <string name="learner_remove_fragment_label">Remove Learner</string>
+  <string name="assign_learner_to_class">Please assign this learner to a classroom</string>
+  <string name="unassigned_learners_fragment_label">Unassigned Learners</string>
+  <string name="unassigned_learners_fragment_explanation_text">
+    Select unassigned learners that you wish to assign to classroom.
+    Use the square checkboxes to tick the learners you want to include.</string>
+  <string name="learner_remove_from_group">Unassign selected learners from this class?</string>
+  <string name="learner_transfer_to_other_group">Transfer selected learners to another class?</string>
+  <string name="learner_assign_to_current_group">Assign selected learners to current class?</string>
+  <string name="learner_assign_to_other_group">Assign selected learners to a class?</string>
+  <string name="classroom_assignment">Classroom Assignment</string>
+  <string name="learner_attendance_fragment_label">Learner Attendance</string>
+  <string name="submit_learner_attendance_title">Submit Learner Attendance</string>
+  <string name="learner_add_options_title">Add Learner To Class</string>
+  <string name="learner_add_options_message">You can either create a new learner or select one from the unassigned
+    learners</string>
+  <string name="learner_add_options_new">New Learner</string>
+  <string name="learner_add_options_assign">Unassigned Learners</string>
+  <string name="learner_details">Learner Details</string>
+  <string name="learner_add_new">+ Add New Learner</string>
+  <string name="learner_unassigned_learners">Unassigned Learners</string>
+  <string name="learner_add_unassigned_learners">Unassigned Learners</string>
+  <string name="admission_number">Admission Number</string>
+  <string name="learner_id_auto">Learner ID (auto-generated)</string>
+  <string name="learner_uid">Learner UID</string>
+  <string name="first_name">First Name</string>
+  <string name="middle_name">Middle Name</string>
+  <string name="last_name">Last Name</string>
+  <string name="gender">Gender</string>
+  <string name="date_admission">Date of Admission</string>
+  <string name="date_of_birth">Date of Birth</string>
+  <!-- Age string double quoted to preserve trailing space -->
+  <string name="age">"Age: "</string>
+  <string name="strongest_language">Strongest Language Spoken</string>
+  <string name="pregnancy_maternal_status">Pregnancy/Maternal Status</string>
+  <string name="learner_left_school">Learner Left School</string>
+  <string name="end_date">End Date</string>
+  <string name="reason_end_date">Reason for End Date</string>
+  <string name="specify">Specify</string>
+  <string name="learner_classroom">Learner Classroom Assignment</string>
+  <string name="learner_needs_assessment">Learner Needs Assessment</string>
+  <string name="vision">Vision</string>
+  <string name="mobility">Mobility</string>
+  <string name="self_care">Self-Care</string>
+  <string name="hearing">Hearing</string>
+  <string name="cognition">Cognition</string>
+  <string name="communication">Communication</string>
+  <string name="common_conditions">Other Common Conditions</string>
+  <string name="guardian_details">Primary Guardian</string>
+  <string name="load_guardian">Load Existing Guardian</string>
+  <string name="relationship_to_learner">Relationship to Learner</string>
+  <string name="phone_number_1">Phone Number 1</string>
+  <string name="phone_number_2">Phone Number 2</string>
+  <string name="tablet_phone_number">Tablet Phone Number</string>
+  <string name="address">Address</string>
+  <string name="email">Email</string>
+  <string name="_1st">1st</string>
+  <string name="_2nd">2nd</string>
+
+  <!--School Group Management-->
+  <string name="school_group_profile_fragment_label">Classroom Profile</string>
+  <string name="school_group_profile_details_fragment_label">Classroom Profile Details</string>
+  <string name="school_teacher_attendance_list_fragment">Teacher Attendance</string>
+  <string name="fingerprint_register_fragment_label">Register Fingerprint</string>
+
+  <string name="next">Next</string>
+  <string name="previous">Previous</string>
+  <string name="idTag">id</string>
+  <string name="search_bar_placeholder">Search…</string>
+  <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </string>
+
+  <!--  Days of Week-->
+  <string name="sunday">Sunday</string>
+  <string name="monday">Monday</string>
+  <string name="tuesday">Tuesday</string>
+  <string name="wednesday">Wednesday</string>
+  <string name="thursday">Thursday</string>
+  <string name="friday">Friday</string>
+  <string name="saturday">Saturday</string>
+
+  <!-- Other Strings-->
+  <string name="nin_field_label">NIN (NCRA ID, 8 characters, e.g. J8KM64DW)</string>
+
+  <string name="empty_attendance_message">No attendance available for this day</string>
+  <string name="no_fingerprints_registered_message">
+    No fingerprints have been registered yet on this teacher\'s profile.
+    Please register their fingerprints on their profile first.</string>
+  <string name="no_profile_photo_registered_message">
+    No profile photo has been registered yet on this teacher\'s profile.
+    Please register a photo on their profile first.</string>
+
+  <string name="submitted_attendance_message">This day\'s attendance sheet was submitted successfully.
+    Any further edits will be resubmitted automatically.</string>
+
+  <string name="fingerprint_reader_wait">Please wait for fingerprint reader…</string>
+  <string name="loading">Loading…</string>
+  <string name="specify_other">Specify other</string>
+  <string name="update">Update</string>
+  <string name="app_update_available">App Update Available</string>
+  <string name="new_version">New Version: %d</string>
+  <string name="your_version">Your Version: %d</string>
+  <string name="force_update_explanation">This update is mandatory,
+    you must update the app in order to continue using it</string>
+  <string name="details">Update Details:</string>
+  <string name="skip_update">Update Later</string>
+  <string name="update_now">Update Now</string>
+  <string name="mandatory_update">Mandatory Update</string>
+  <string name="verify_teacher_registered_fingerprints">Verify any one of this teacher\'s registered fingerprints</string>
+  <string name="scan_fingerprint">Please scan fingerprint</string>
+  <string name="snap_portrait_photo">Alternatively snap a portrait photo</string>
+  <string name="count">Count:</string>
+  <string name="reason_for_removal">Reason for removal</string>
+  <string name="removal_additional_information">Additional information about this removal
+    (e.g. where is this teacher now?)</string>
+  <string name="left_school_date">Date they left this school</string>
+  <string name="remove_teacher">Remove Teacher</string>
+  <string name="register_fingerprint">Register Fingerprint</string>
+  <string name="step_register_print">Step 1 - Register fingerprint</string>
+  <string name="nothing_scanned">Nothing scanned</string>
+  <string name="step_take_another_print">Step 2 - Scan again to verify (same finger)</string>
+  <string name="logged_in_as">"Username:   %s"</string>
+  <string name="enter_my_school">Enter My School</string>
+  <string name="classroom">Classroom</string>
+  <string name="_0">0%</string>
+  <string name="app_version_v">App Version: v%d</string>
+  <string name="checking_updates">Checking for updates…</string>
+  <string name="classroom_details">Classroom Details</string>
+  <string name="classroom_level">Classroom Level (year-group)</string>
+  <string name="classroom_name">Classroom Name (optional if only one classroom in this year-group)</string>
+  <string name="academic_year">Academic Year</string>
+  <string name="teacher_details">Teacher Details</string>
+  <string name="teacher_name">Teacher Name</string>
+  <string name="background_sync">Background Sync</string>
+  <string name="toggle_background_sync">Toggle background syncing. When on will sync with server every 15 minutes</string>
+  <string name="on_demand_sync">On Demand Sync</string>
+  <string name="disable_background_sync">Disable background sync to trigger downloading or uploading on demand using buttons below</string>
+  <string name="sync_log">Sync Log</string>
+  <string name="academic_year_2">Academic Year:</string>
+  <string name="learners">Learners</string>
+  <string name="teacher_colon">Teacher:</string>
+  <string name="male">Male</string>
+  <string name="female">Female</string>
+  <string name="date_of_birth_colon">Date of Birth:</string>
+  <string name="pin_colon">PIN:</string>
+  <string name="gender_colon">Gender:</string>
+  <string name="nin_colon">NIN:</string>
+  <string name="learner_search_fragment_label">Search Learner</string>
+  <string name="new_learner">New Learner</string>
+  <string name="remove_learner">Remove Learner</string>
+  <string name="non_payroll">Non-Payroll</string>
+  <string name="highest_quality">Highest quality: Proceed to Step 2</string>
+  <string name="high_quality">High quality: Proceed to Step 2</string>
+  <string name="medium_quality">Medium quality: Proceed to Step 2</string>
+  <string name="low_quality">Low quality: Please try again</string>
+  <string name="lowest_quality">Lowest quality: Please try again</string>
+  <string name="error_scan">Error scanning finger: Please try again</string>
+  <string name="fingerprint_not_match">Fingerprint doesn\'t match Step 1</string>
+  <string name="check">Check</string>
+
+  <!-- Sync -->
+  <string name="download">Download</string>
+  <string name="upload">Upload</string>
+  <string name="sync">Sync</string>
+  <string name="sync_state_records_title">Records to Sync</string>
+  <string name="sync_state_files_title">Files to Sync</string>
+
+  <!-- Settings -->
+  <string name="sync_logs">Sync Logs</string>
+  <string name="clear_device_logs">Clear device logs. Any records in the sync log will be deleted.</string>
+  <string name="app_update">App Update</string>
+  <string name="no_update_available">No update available</string>
+  <string name="backup_database">Backup Database</string>
+  <string name="send_backup">Send backup of database to server. Use this function for backup or data recovery.</string>
+<!--  TODO: This needs to be implemented but couldn't access getString() in SyncData.kt ... -->
+  <string name="sync_log_records_inserted_into_table">⬇️  Inserted %d records into %s</string>
+
+  <string name="dialog_send_backup_title">Send Database Backup</string>
+  <string name="dialog_send_backup_message_info">A copy of your app database will be securely
+    sent to the server. Do you wish to proceed?</string>
+  <string name="dialog_send_backup_message_success">Database backup was successfully sent to server</string>
+  <string name="dialog_send_backup_message_error">Something went wrong.
+    Please try again or contact technical support</string>
+  <string name="clear_logs">Clear Logs</string>
+  <string name="sync_logs_warning">Warning: all sync logs stored on device will be cleared. Do you wish to proceed?</string>
+  <string name="new_update_description">A new app update is available for you to download.
+    \nNew version: %d</string>
+  <string name="check_update_description">Check if an update is available.
+    \nLast checked:  %s</string>
+
+  <string name="no_updates_title">No App Update Available</string>
+  <string name="no_updates_message">Your app is up-to-date ✅</string>
+  <string name="update_error_title">Server Connection Failed</string>
+  <string name="update_error_message">Server could not be reached. Check your network connection and try again.</string>
+
+  <string name="db_purge_title">Purge Deleted Records</string>
+  <string name="db_purge_desc">Clear any records that have been marked as deleted and have
+    already been sync with the server to reduce database size</string>
+  <string name="purge">Purge</string>
+
+  <string name="db_purge_dialog_title">Purge Database</string>
+  <string name="db_purge_dialog_info">Confirm purging %d deleted records from database</string>
+
+  <string name="db_reset_title">Reset Database</string>
+  <string name="db_reset_desc">If no pending uploads reset database and logout of app</string>
+  <string name="reset">Reset</string>
+
+  <string name="db_reset_dialog_info_error">%1d records and %2d files have not been sent to server.  Sync remaining
+    records and try again</string>
+  <string name="db_reset_dialog_info_confirm">Confirm resetting database (you will be logged out)</string>
+
+  <!--  String Arrays-->
+
+  <string-array name="school_group_actions" translatable="false">
+    <item>Unassign</item>
+    <item>Transfer</item>
+  </string-array>
+
+  <string-array name="unassigned_learners_actions" translatable="false">
+    <item>Assign</item>
+  </string-array>
+
+  <string-array name="common_string_array" translatable="false">
+    <item>Item 1</item>
+    <item>Item 2</item>
+    <item>Item 3</item>
+    <item>Item 4</item>
+  </string-array>
+
+  <string-array name="test_string_array" translatable="false">
+    <item>pre</item>
+    <item>pri</item>
+    <item>jss</item>
+    <item>sss</item>
+  </string-array>
+
+</resources>

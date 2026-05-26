@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/color">
+        <color android:color="@color/white" />
+    </item>
+    <item android:id="@+id/logo" android:bottom="2dp" android:width="225dp" android:height="159dp" android:drawable="@drawable/ic_wideya_logo_square_colour" android:gravity="center">
+    </item>
+</layer-list>

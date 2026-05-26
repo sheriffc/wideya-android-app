@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  style="?attr/materialCardViewElevatedStyle"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="8dp"
+  tools:ignore="RtlSymmetry">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="4dp"
+    android:paddingEnd="4dp">
+
+    <LinearLayout
+      android:id="@+id/v_select"
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:paddingStart="16dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/teacherIcon"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+      <CheckBox
+        android:id="@+id/cb_select"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <ImageView
+      android:id="@+id/teacherIcon"
+      android:layout_width="60dp"
+      android:layout_height="60dp"
+      android:layout_marginStart="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toEndOf="@id/v_select"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/ic_account_circle_black_24dp"
+      tools:ignore="ContentDescription" />
+
+    <TextView
+      android:id="@+id/tvTeacherName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/teacherIcon"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="Teacher name" />
+
+    <TextView
+      android:id="@+id/tvTeacherPin"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="4dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@+id/tvTeacherName"
+      app:layout_constraintTop_toBottomOf="@+id/tvTeacherName"
+      tools:text="Pin: N/A" />
+
+    <TextView
+      android:id="@+id/tvAbsentReason"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginVertical="3dp"
+      android:layout_marginStart="4dp"
+      android:layout_marginTop="4dp"
+      android:layout_marginEnd="10dp"
+      android:textAlignment="textEnd"
+      android:textColor="@color/red_mid"
+      android:textSize="13sp"
+      android:visibility="visible"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="@+id/cvAbsent"
+      app:layout_constraintStart_toStartOf="@+id/cvPresent"
+      app:layout_constraintTop_toBottomOf="@+id/cvAbsent"
+      app:layout_constraintVertical_bias="1.0"
+      tools:text="Teacher Absent Reason" />
+
+    <ImageView
+      android:id="@+id/biometricIcon"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="8dp"
+      android:adjustViewBounds="true"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="@+id/cvPresent"
+      app:layout_constraintEnd_toStartOf="@+id/cvPresent"
+      app:layout_constraintTop_toTopOf="@+id/cvPresent"
+      app:srcCompat="@drawable/ic_fingerprint_black_24dp"
+      tools:ignore="ContentDescription"
+      tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/cvPresent"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintEnd_toStartOf="@+id/cvAbsent"
+      app:layout_constraintTop_toBottomOf="@+id/tvTeacherPin">
+
+      <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.chip.Chip
+          android:id="@+id/cPresent"
+          style="@style/Widget.Material3.Chip.Suggestion"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/on_time"
+          android:textSize="11sp"
+          app:chipBackgroundColor="@color/chip_background_state_list_present" />
+
+        <com.google.android.material.chip.Chip
+          android:id="@+id/cLate"
+          style="@style/Widget.Material3.Chip.Suggestion"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/late"
+          android:textSize="11sp"
+          app:chipBackgroundColor="@color/chip_background_state_list_late" />
+
+      </com.google.android.material.chip.ChipGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/cvAbsent"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tvTeacherPin">
+
+      <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:paddingStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.chip.Chip
+          android:id="@+id/cAbsent"
+          style="@style/Widget.Material3.Chip.Suggestion"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/absent"
+          android:textSize="11sp"
+          app:chipBackgroundColor="@color/chip_background_state_list_absent" />
+
+      </com.google.android.material.chip.ChipGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

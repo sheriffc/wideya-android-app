@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/camera_container"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@android:color/black"
+  android:fitsSystemWindows="true">
+
+  <androidx.camera.view.PreviewView
+    android:id="@+id/view_finder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+
+  <FrameLayout
+    android:id="@+id/cam_overlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+      android:id="@+id/ivOverlay"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scaleType="fitXY"
+      android:src="@drawable/bg_camera_overlay"
+      tools:ignore="ContentDescription" />
+
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="15dp"
+      android:gravity="center"
+      android:text="@string/camera_overlay_guide"
+      android:textColor="@color/white"
+      android:textSize="16sp"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

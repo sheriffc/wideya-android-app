@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- APP UPDATE -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvUpdateTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_update"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvUpdateDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/no_update_available"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnUpdate"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvUpdateTitle" />
+
+                <Button
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/update_now"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/pbUpdate"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:elevation="2dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#FFFFFF"
+                    android:progressTint="#FFFFFF"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnUpdate"
+                    app:layout_constraintEnd_toEndOf="@+id/btnUpdate"
+                    app:layout_constraintStart_toStartOf="@+id/btnUpdate"
+                    app:layout_constraintTop_toTopOf="@+id/btnUpdate" />
+
+                <!--        <View-->
+                <!--          android:id="@+id/divUpdate"-->
+                <!--          android:layout_width="0dp"-->
+                <!--          android:layout_height="2dp"-->
+                <!--          android:layout_marginTop="8dp"-->
+                <!--          android:background="@color/grey_200"-->
+                <!--          app:layout_constraintEnd_toEndOf="parent"-->
+                <!--          app:layout_constraintStart_toStartOf="parent"-->
+                <!--          app:layout_constraintTop_toBottomOf="@+id/btnUpdate" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- DATABASE BACKUP -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvDbExport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvUpdate">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvDbExportTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/backup_database"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvDbExportDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/send_backup"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnExportDatabase"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDbExportTitle" />
+
+                <Button
+                    android:id="@+id/btnExportDatabase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/send"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/pbExportDatabase"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:elevation="2dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#FFFFFF"
+                    android:progressTint="#FFFFFF"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnExportDatabase"
+                    app:layout_constraintEnd_toEndOf="@+id/btnExportDatabase"
+                    app:layout_constraintStart_toStartOf="@+id/btnExportDatabase"
+                    app:layout_constraintTop_toTopOf="@+id/btnExportDatabase" />
+
+                <!--        <View-->
+                <!--          android:id="@+id/divDb"-->
+                <!--          android:layout_width="0dp"-->
+                <!--          android:layout_height="2dp"-->
+                <!--          android:layout_marginTop="8dp"-->
+                <!--          android:background="@color/grey_200"-->
+                <!--          app:layout_constraintEnd_toEndOf="parent"-->
+                <!--          app:layout_constraintStart_toStartOf="parent"-->
+                <!--          app:layout_constraintTop_toBottomOf="@+id/btnExportDatabase" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- LOGS -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvLogs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvDbExport">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvLogsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sync_logs"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvLogsDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/clear_device_logs"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnClearLogs"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLogsTitle" />
+
+                <Button
+                    android:id="@+id/btnClearLogs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/clear"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/pbClearLogs"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:elevation="2dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#FFFFFF"
+                    android:progressTint="#FFFFFF"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnClearLogs"
+                    app:layout_constraintEnd_toEndOf="@+id/btnClearLogs"
+                    app:layout_constraintStart_toStartOf="@+id/btnClearLogs"
+                    app:layout_constraintTop_toTopOf="@+id/btnClearLogs" />
+
+                <!--        <View-->
+                <!--          android:id="@+id/divLogs"-->
+                <!--          android:layout_width="0dp"-->
+                <!--          android:layout_height="2dp"-->
+                <!--          android:layout_marginTop="16dp"-->
+                <!--          android:background="@color/grey_200"-->
+                <!--          app:layout_constraintEnd_toEndOf="parent"-->
+                <!--          app:layout_constraintStart_toStartOf="parent"-->
+                <!--          app:layout_constraintTop_toBottomOf="@+id/pbClearLogs" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- PURGE -->
+        <androidx.cardview.widget.CardView
+          android:id="@+id/cvDbPurge"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:visibility="gone"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/cvLogs"
+          tools:visibility="gone">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="16dp">
+
+                <TextView
+                  android:id="@+id/tvDbPurgeTitle"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/db_purge_title"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                  android:id="@+id/tvDbPurgeDesc"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="8dp"
+                  android:layout_marginEnd="8dp"
+                  android:text="@string/db_purge_desc"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toStartOf="@+id/btnDbPurge"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/tvDbPurgeTitle" />
+
+                <Button
+                  android:id="@+id/btnDbPurge"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/purge"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                  android:id="@+id/pbDbPurge"
+                  style="?android:attr/progressBarStyle"
+                  android:layout_width="30dp"
+                  android:layout_height="30dp"
+                  android:elevation="2dp"
+                  android:indeterminate="true"
+                  android:indeterminateTint="#FFFFFF"
+                  android:progressTint="#FFFFFF"
+                  android:visibility="invisible"
+                  app:layout_constraintBottom_toBottomOf="@+id/btnDbPurge"
+                  app:layout_constraintEnd_toEndOf="@+id/btnDbPurge"
+                  app:layout_constraintStart_toStartOf="@+id/btnDbPurge"
+                  app:layout_constraintTop_toTopOf="@+id/btnDbPurge" />
+
+                <!--      <View-->
+                <!--        android:id="@+id/divDbPurge"-->
+                <!--        android:layout_width="0dp"-->
+                <!--        android:layout_height="2dp"-->
+                <!--        android:background="@color/grey_200" />-->
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvReset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvDbPurge">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvDbResetTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/db_reset_title"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvDbResetDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/db_reset_desc"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnDbReset"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDbResetTitle" />
+
+                <Button
+                    android:id="@+id/btnDbReset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reset"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/pbDbReset"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:elevation="2dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#FFFFFF"
+                    android:progressTint="#FFFFFF"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnDbReset"
+                    app:layout_constraintEnd_toEndOf="@+id/btnDbReset"
+                    app:layout_constraintStart_toStartOf="@+id/btnDbReset"
+                    app:layout_constraintTop_toTopOf="@+id/btnDbReset" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvReset"
+            tools:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvLocTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/location_debug"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/location"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

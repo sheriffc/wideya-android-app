@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <androidx.core.widget.NestedScrollView
+    android:id="@+id/nestedScrollView"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toTopOf="@id/action_barrier"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:padding="8dp"
+      android:paddingBottom="24dp">
+
+      <!-- Shown when school feeding support is disabled -->
+      <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvFeedingDisabled"
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone">
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="16dp"
+          android:text="School feeding support is not enabled. Go to the School tab and set 'School Receiving Feeding Support' to YES to enable this section."
+          android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+      </com.google.android.material.card.MaterialCardView>
+
+      <!-- Items Received -->
+      <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvFeedingDetails"
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:padding="12dp">
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Items Received"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:layout_marginBottom="8dp" />
+
+          <!-- Rice -->
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+              android:id="@+id/cbRice"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Rice"
+              android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlQtyRice"
+              android:layout_width="120dp"
+              android:layout_height="wrap_content"
+              android:hint="Qty (bags)"
+              android:visibility="gone"
+              tools:visibility="visible">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etQtyRice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
+
+          <!-- Beans -->
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+              android:id="@+id/cbBeans"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Beans"
+              android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlQtyBeans"
+              android:layout_width="120dp"
+              android:layout_height="wrap_content"
+              android:hint="Qty (bags)"
+              android:visibility="gone"
+              tools:visibility="visible">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etQtyBeans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
+
+          <!-- Gari -->
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+              android:id="@+id/cbGari"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Gari"
+              android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlQtyGari"
+              android:layout_width="120dp"
+              android:layout_height="wrap_content"
+              android:hint="Qty (bags)"
+              android:visibility="gone"
+              tools:visibility="visible">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etQtyGari"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
+
+          <!-- Vegetable Oil -->
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+              android:id="@+id/cbVegOil"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Vegetable Oil"
+              android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlQtyVegOil"
+              android:layout_width="120dp"
+              android:layout_height="wrap_content"
+              android:hint="Qty (litres)"
+              android:visibility="gone"
+              tools:visibility="visible">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etQtyVegOil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
+
+          <!-- Salt -->
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <CheckBox
+              android:id="@+id/cbSalt"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Salt"
+              android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlQtySalt"
+              android:layout_width="120dp"
+              android:layout_height="wrap_content"
+              android:hint="Qty (kg)"
+              android:visibility="gone"
+              tools:visibility="visible">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etQtySalt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
+
+          <!-- Supply Period -->
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlSupplyPeriod"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:hint="Supply Period">
+
+            <AutoCompleteTextView
+              android:id="@+id/actvSupplyPeriod"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:focusable="false"
+              android:inputType="none" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <!-- Received At -->
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlReceivedAt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:hint="Received At (Date)"
+            app:endIconDrawable="@drawable/ic_calendar"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etReceivedAt"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:focusable="false"
+              android:inputType="none" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <!-- Supplied By -->
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlSuppliedBy"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:hint="Supplied By">
+
+            <AutoCompleteTextView
+              android:id="@+id/actvSuppliedBy"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:focusable="false"
+              android:inputType="none" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <!-- Supplied By Other -->
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlSuppliedByOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:hint="Specify Supplier"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etSuppliedByOther"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="textCapWords" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+      </com.google.android.material.card.MaterialCardView>
+
+      <!-- Update Stock card -->
+      <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvStockUpdate"
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:padding="12dp">
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Stock Available"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:layout_marginBottom="12dp" />
+
+          <!-- Month selector -->
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlStockMonth"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Month">
+
+            <AutoCompleteTextView
+              android:id="@+id/actvStockMonth"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:focusable="false"
+              android:inputType="none" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <!-- Rice -->
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+              android:id="@+id/cbStockRice"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Rice"
+              android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlStockQtyRice"
+              android:layout_width="120dp"
+              android:layout_height="wrap_content"
+              android:hint="Qty (bags)"
+              android:visibility="gone">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etStockQtyRice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
+
+          <!-- Beans -->
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+              android:id="@+id/cbStockBeans"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Beans"
+              android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlStockQtyBeans"
+              android:layout_width="120dp"
+              android:layout_height="wrap_content"
+              android:hint="Qty (bags)"
+              android:visibility="gone">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etStockQtyBeans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
+
+          <!-- Gari -->
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+              android:id="@+id/cbStockGari"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Gari"
+              android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlStockQtyGari"
+              android:layout_width="120dp"
+              android:layout_height="wrap_content"
+              android:hint="Qty (bags)"
+              android:visibility="gone">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etStockQtyGari"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
+
+          <!-- Vegetable Oil -->
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+              android:id="@+id/cbStockVegOil"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Vegetable Oil"
+              android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlStockQtyVegOil"
+              android:layout_width="120dp"
+              android:layout_height="wrap_content"
+              android:hint="Qty (litres)"
+              android:visibility="gone">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etStockQtyVegOil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
+
+          <!-- Salt -->
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <CheckBox
+              android:id="@+id/cbStockSalt"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Salt"
+              android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/tlStockQtySalt"
+              android:layout_width="120dp"
+              android:layout_height="wrap_content"
+              android:hint="Qty (kg)"
+              android:visibility="gone">
+
+              <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etStockQtySalt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+              android:id="@+id/btnSaveStock"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Save Stock"
+              android:textSize="15sp" />
+
+            <com.google.android.material.button.MaterialButton
+              android:id="@+id/btnEditStock"
+              style="?attr/materialButtonOutlinedStyle"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginStart="8dp"
+              android:text="Update Stock Available"
+              android:textSize="15sp"
+              android:visibility="gone" />
+
+          </LinearLayout>
+
+        </LinearLayout>
+      </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+
+  <androidx.constraintlayout.widget.Barrier
+    android:id="@+id/action_barrier"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:barrierDirection="top"
+    app:constraint_referenced_ids="llActions" />
+
+  <LinearLayout
+    android:id="@+id/llActions"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:orientation="horizontal"
+    android:weightSum="1"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btnSaveFeeding"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:text="Save"
+      android:textSize="16sp" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btnNewSubmission"
+      style="?attr/materialButtonOutlinedStyle"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginStart="8dp"
+      android:text="New Submission"
+      android:textSize="16sp"
+      android:visibility="gone" />
+
+  </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

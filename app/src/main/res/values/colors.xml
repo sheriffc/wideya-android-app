@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="status_bar_light">#FFEEEDF7</color>
+    <color name="status_bar_dark">#FF00164D</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="trans_black">#A6000000</color>
+
+    <color name="green_bold">#94DF3E</color>
+    <color name="yellow_bold">#FFEB3B</color>
+    <color name="red_bold">#F44336</color>
+
+    <color name="green_mid">#9ADD4D</color>
+    <color name="yellow_mid">#F8E859</color>
+    <color name="red_mid">#ED5C51</color>
+    <color name="orange_mid">#F88B59</color>
+    <color name="blue_mid">#3E95DA</color>
+
+    <color name="red_light">#E48078</color>
+
+    <color name="green_neutral">#7ECC54</color>
+    <color name="green_dark">#399223</color>
+
+    <color name="green_pastel">#BEE5B0</color>
+    <color name="yellow_pastel">#FFFFCE</color>
+    <color name="red_pastel">#FFA9A9</color>
+
+    <color name="yellow_faint">#FCFCDB</color>
+    <color name="purple_faint">#E1D9F1</color>
+    <color name="blue_faint">#E6F2FB</color>
+
+    <color name="editable_area">#FFFFFFFF</color>
+    <color name="non_editable_area">#DFDFDF</color>
+
+    <color name="grey_border">#7A7180</color>
+    <color name="grey_dark">#636363</color>
+
+    <color name="icActive">#FFFFFFFF</color>
+    <color name="icFocused">#DDFFFFFF</color>
+    <color name="icPressed">#AAFFFFFF</color>
+
+    <color name="button_edit">#3E95DA</color>
+    <color name="button_remove">#ED5C51</color>
+    <color name="button_add">#006E2F</color>
+    <color name="button_rotate">#EEC217</color>
+    <color name="button_timetable">#006E2F</color>
+
+    <color name="seed">#04256E</color>
+    <color name="md_theme_light_primary">#405AA9</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#DCE1FF</color>
+    <color name="md_theme_light_onPrimaryContainer">#00164D</color>
+    <color name="md_theme_light_secondary">#006E2F</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#BEE5B0</color>
+    <color name="md_theme_light_onSecondaryContainer">#002109</color>
+    <color name="md_theme_light_tertiary">#735C00</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#FFE084</color>
+    <color name="md_theme_light_onTertiaryContainer">#231B00</color>
+    <color name="md_theme_light_error">#BA1A1A</color>
+    <color name="md_theme_light_errorContainer">#FFDAD6</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+    <color name="md_theme_light_onErrorContainer">#410002</color>
+    <color name="md_theme_light_background">#FEFBFF</color>
+    <color name="md_theme_light_onBackground">#00184A</color>
+    <color name="md_theme_light_surface">#FEFBFF</color>
+    <color name="md_theme_light_onSurface">#00184A</color>
+    <color name="md_theme_light_surfaceVariant">#E2E1EC</color>
+    <color name="md_theme_light_onSurfaceVariant">#45464F</color>
+    <color name="md_theme_light_outline">#767680</color>
+    <color name="md_theme_light_inverseOnSurface">#EEF0FF</color>
+    <color name="md_theme_light_inverseSurface">#002A76</color>
+    <color name="md_theme_light_inversePrimary">#B5C4FF</color>
+    <color name="md_theme_light_shadow">#000000</color>
+    <color name="md_theme_light_surfaceTint">#405AA9</color>
+    <color name="md_theme_light_surfaceTintColor">#405AA9</color>
+    <color name="md_theme_dark_primary">#B5C4FF</color>
+    <color name="md_theme_dark_onPrimary">#052978</color>
+    <color name="md_theme_dark_primaryContainer">#264190</color>
+    <color name="md_theme_dark_onPrimaryContainer">#DCE1FF</color>
+    <color name="md_theme_dark_secondary">#69DE83</color>
+    <color name="md_theme_dark_onSecondary">#003915</color>
+    <color name="md_theme_dark_secondaryContainer">#005322</color>
+    <color name="md_theme_dark_onSecondaryContainer">#86FB9D</color>
+    <color name="md_theme_dark_tertiary">#EEC217</color>
+    <color name="md_theme_dark_onTertiary">#3C2F00</color>
+    <color name="md_theme_dark_tertiaryContainer">#574500</color>
+    <color name="md_theme_dark_onTertiaryContainer">#FFE084</color>
+    <color name="md_theme_dark_error">#FFB4AB</color>
+    <color name="md_theme_dark_errorContainer">#93000A</color>
+    <color name="md_theme_dark_onError">#690005</color>
+    <color name="md_theme_dark_onErrorContainer">#FFDAD6</color>
+    <color name="md_theme_dark_background">#00184A</color>
+    <color name="md_theme_dark_onBackground">#DBE1FF</color>
+    <color name="md_theme_dark_surface">#00184A</color>
+    <color name="md_theme_dark_onSurface">#DBE1FF</color>
+    <color name="md_theme_dark_surfaceVariant">#45464F</color>
+    <color name="md_theme_dark_onSurfaceVariant">#C6C6D0</color>
+    <color name="md_theme_dark_outline">#8F909A</color>
+    <color name="md_theme_dark_inverseOnSurface">#00184A</color>
+    <color name="md_theme_dark_inverseSurface">#DBE1FF</color>
+    <color name="md_theme_dark_inversePrimary">#405AA9</color>
+    <color name="md_theme_dark_shadow">#000000</color>
+    <color name="md_theme_dark_surfaceTint">#B5C4FF</color>
+    <color name="md_theme_dark_surfaceTintColor">#B5C4FF</color>
+
+<!--    fingerprint-->
+    <color name="fp_highest">#006E2F</color>
+    <color name="fp_high">#94DF3E</color>
+    <color name="fp_medium">#FFEB3B</color>
+    <color name="fp_low">#F88B59</color>
+    <color name="fp_lowest">#F44336</color>
+    <color name="fp_error">#BA1A1A</color>
+    <color name="fp_none">#BABABA</color>
+    <color name="fp_no_match">#E48078</color>
+
+    <color name="grey_50">#FAFAFA</color>
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_200">#EEEEEE</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_400">#BDBDBD</color>
+    <color name="grey_500">#9E9E9E</color>
+    <color name="grey_600">#757575</color>
+    <color name="grey_700">#616161</color>
+    <color name="grey_800">#424242</color>
+    <color name="grey_900">#212121</color>
+    <color name="grey_1000">#1a1a1a</color>
+
+    <color name="disabled_color">#DFDFE9</color>
+
+</resources>

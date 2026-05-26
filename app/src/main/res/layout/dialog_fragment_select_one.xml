@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@android:color/white"
+  android:orientation="vertical">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:paddingLeft="24dp"
+    android:paddingTop="8dp"
+    android:paddingRight="24dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+      android:id="@+id/tvTitle"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:maxLines="20"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      tools:text="Question" />
+
+  </LinearLayout>
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/md_theme_light_surfaceVariant" />
+
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:padding="8dp">
+
+      <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:orientation="vertical" />
+
+      <EditText
+        android:id="@+id/etOther"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/specify_other"
+        android:importantForAutofill="no"
+        android:inputType="textCapSentences|textNoSuggestions" />
+
+    </LinearLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/md_theme_light_surfaceVariant" />
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="8dp"
+    android:paddingTop="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp">
+
+    <Button
+      android:id="@+id/btnNegative"
+      style="?android:attr/buttonBarButtonStyle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="0dp"
+      android:layout_weight="1.0"
+      android:text="@string/cancel" />
+
+    <View
+      android:layout_width="1dp"
+      android:layout_height="match_parent"
+      android:background="@color/md_theme_light_surfaceVariant" />
+
+    <Button
+      android:id="@+id/btnClear"
+      style="?android:attr/buttonBarButtonStyle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1.0"
+      android:text="@string/clear" />
+
+    <View
+      android:layout_width="1dp"
+      android:layout_height="match_parent"
+      android:background="@color/md_theme_light_surfaceVariant" />
+
+    <Button
+      android:id="@+id/btnPositive"
+      style="?android:attr/buttonBarButtonStyle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="0dp"
+      android:layout_weight="1.0"
+      android:text="@string/ok" />
+
+  </LinearLayout>
+
+</LinearLayout>

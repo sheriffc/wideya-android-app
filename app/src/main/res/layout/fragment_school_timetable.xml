@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:fitsSystemWindows="true">
+
+  <TextView
+    android:id="@+id/tv_empty"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="@string/empty_school_timetable"
+    android:textColor="@color/black"
+    android:textSize="26sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+    android:id="@+id/tv_title"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="@string/school_timetable_title"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+      <LinearLayout
+        android:id="@+id/ll_sunday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_timetable_day"
+        android:orientation="horizontal"
+        android:padding="@dimen/timetable_day_padding"
+        android:weightSum="5">
+
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="@string/sunday"
+          android:textColor="@color/black"
+          android:textSize="@dimen/timetable_day_font"
+          android:textStyle="bold" />
+
+        <HorizontalScrollView
+          android:layout_width="0dp"
+          android:layout_height="@dimen/timetable_list_height"
+          android:layout_weight="4">
+
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+              android:id="@+id/ll_sunday_names"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+              <TextView
+                android:layout_width="@dimen/school_timetable_corner_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="5dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/timetable_item_font" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/rv_sunday"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginTop="10dp"
+              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+              tools:listitem="@layout/item_school_timetable" />
+
+          </LinearLayout>
+
+        </HorizontalScrollView>
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:id="@+id/ll_monday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/timetable_day_margin_top"
+        android:background="@drawable/bg_timetable_day"
+        android:orientation="horizontal"
+        android:padding="@dimen/timetable_day_padding"
+        android:weightSum="5">
+
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="@string/monday"
+          android:textColor="@color/black"
+          android:textSize="@dimen/timetable_day_font"
+          android:textStyle="bold" />
+
+        <HorizontalScrollView
+          android:layout_width="0dp"
+          android:layout_height="@dimen/timetable_list_height"
+          android:layout_weight="4">
+
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+              android:id="@+id/ll_monday_names"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+              <TextView
+                android:layout_width="@dimen/school_timetable_corner_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="5dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/timetable_item_font" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/rv_monday"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginTop="10dp"
+              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+              tools:listitem="@layout/item_school_timetable" />
+
+          </LinearLayout>
+
+        </HorizontalScrollView>
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:id="@+id/ll_tuesday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/timetable_day_margin_top"
+        android:background="@drawable/bg_timetable_day"
+        android:orientation="horizontal"
+        android:padding="@dimen/timetable_day_padding"
+        android:weightSum="5">
+
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="@string/tuesday"
+          android:textColor="@color/black"
+          android:textSize="@dimen/timetable_day_font"
+          android:textStyle="bold" />
+
+        <HorizontalScrollView
+          android:layout_width="0dp"
+          android:layout_height="@dimen/timetable_list_height"
+          android:layout_weight="4">
+
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+              android:id="@+id/ll_tuesday_names"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+              <TextView
+                android:layout_width="@dimen/school_timetable_corner_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="5dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/timetable_item_font" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/rv_tuesday"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginTop="10dp"
+              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+              tools:listitem="@layout/item_school_timetable" />
+
+          </LinearLayout>
+
+        </HorizontalScrollView>
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:id="@+id/ll_wednesday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/timetable_day_margin_top"
+        android:background="@drawable/bg_timetable_day"
+        android:orientation="horizontal"
+        android:padding="@dimen/timetable_day_padding"
+        android:weightSum="5">
+
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="@string/wednesday"
+          android:textColor="@color/black"
+          android:textSize="@dimen/timetable_day_font"
+          android:textStyle="bold" />
+
+        <HorizontalScrollView
+          android:layout_width="0dp"
+          android:layout_height="@dimen/timetable_list_height"
+          android:layout_weight="4">
+
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+              android:id="@+id/ll_wednesday_names"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+              <TextView
+                android:layout_width="@dimen/school_timetable_corner_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="5dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/timetable_item_font" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/rv_wednesday"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginTop="10dp"
+              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+              tools:listitem="@layout/item_school_timetable" />
+
+          </LinearLayout>
+
+        </HorizontalScrollView>
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:id="@+id/ll_thursday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/timetable_day_margin_top"
+        android:background="@drawable/bg_timetable_day"
+        android:orientation="horizontal"
+        android:padding="@dimen/timetable_day_padding"
+        android:weightSum="5">
+
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="@string/thursday"
+          android:textColor="@color/black"
+          android:textSize="@dimen/timetable_day_font"
+          android:textStyle="bold" />
+
+        <HorizontalScrollView
+          android:layout_width="0dp"
+          android:layout_height="@dimen/timetable_list_height"
+          android:layout_weight="4">
+
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+              android:id="@+id/ll_thursday_names"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+              <TextView
+                android:layout_width="@dimen/school_timetable_corner_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="5dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/timetable_item_font" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/rv_thursday"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginTop="10dp"
+              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+              tools:listitem="@layout/item_school_timetable" />
+
+          </LinearLayout>
+
+        </HorizontalScrollView>
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:id="@+id/ll_friday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/timetable_day_margin_top"
+        android:background="@drawable/bg_timetable_day"
+        android:orientation="horizontal"
+        android:padding="@dimen/timetable_day_padding"
+        android:weightSum="5">
+
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="@string/friday"
+          android:textColor="@color/black"
+          android:textSize="@dimen/timetable_day_font"
+          android:textStyle="bold" />
+
+        <HorizontalScrollView
+          android:layout_width="0dp"
+          android:layout_height="@dimen/timetable_list_height"
+          android:layout_weight="4">
+
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+              android:id="@+id/ll_friday_names"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+              <TextView
+                android:layout_width="@dimen/school_timetable_corner_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="5dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/timetable_item_font" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/rv_friday"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginTop="10dp"
+              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+              tools:listitem="@layout/item_school_timetable" />
+
+          </LinearLayout>
+
+        </HorizontalScrollView>
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:id="@+id/ll_saturday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/timetable_day_margin_top"
+        android:background="@drawable/bg_timetable_day"
+        android:orientation="horizontal"
+        android:padding="@dimen/timetable_day_padding"
+        android:weightSum="5">
+
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="@string/saturday"
+          android:textColor="@color/black"
+          android:textSize="@dimen/timetable_day_font"
+          android:textStyle="bold" />
+
+        <HorizontalScrollView
+          android:layout_width="0dp"
+          android:layout_height="@dimen/timetable_list_height"
+          android:layout_weight="4">
+
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+              android:id="@+id/ll_saturday_names"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+              <TextView
+                android:layout_width="@dimen/school_timetable_corner_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="5dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/timetable_item_font" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/rv_saturday"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginTop="10dp"
+              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+              tools:listitem="@layout/item_school_timetable" />
+
+          </LinearLayout>
+
+        </HorizontalScrollView>
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+  <ProgressBar
+    android:id="@+id/progress_bar"
+    style="?android:attr/progressBarStyle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

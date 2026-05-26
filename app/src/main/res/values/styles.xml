@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="FormCardHeading" parent="TextAppearance.AppCompat.Title">
+    <item name="android:layout_marginStart">4dp</item>
+    <item name="android:layout_marginTop">0dp</item>
+    <item name="android:layout_marginBottom">2dp</item>
+  </style>
+
+  <style name="TextInput">
+    <!-- placeholder for any overarching TextInput characteristics -->
+  </style>
+
+  <style name="TextInput.DisabledByDefault" parent="TextInput">
+    <!-- view-only characteristics that are overriden dynamically when user enters edit mode -->
+    <item name="android:longClickable">false</item>
+    <item name="android:clickable">false</item>
+    <item name="android:focusable">false</item>
+  </style>
+
+  <style name="TextInput.DisabledByDefault.WithDialog" parent="TextInput.DisabledByDefault">
+    <!-- placeholder for any characteristics specific to dialog fields -->
+  </style>
+
+  <style name="TextInput.EnabledByDefault" parent="TextInput">
+    <!-- placeholder but inherited -->
+  </style>
+
+  <style name="TextInput.EnabledByDefault.WithDialog" parent="TextInput.EnabledByDefault">
+    <item name="android:longClickable">false</item>
+    <item name="android:clickable">false</item>
+    <item name="android:focusable">false</item>
+  </style>
+
+  <style name="RecyclerItemSubText">
+    <item name="android:textColor">@color/black</item>
+  </style>
+
+  <style name="AppCompatAddButton">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">55dp</item>
+    <item name="android:text">+ ADD NEW</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:contentDescription">Add</item>
+    <item name="android:backgroundTint">@color/green_neutral</item>
+    <item name="android:background">@drawable/bg_bottom_button</item>
+  </style>
+
+  <style name="AppCompatSaveButton">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">55dp</item>
+    <item name="android:text">SAVE</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:contentDescription">Save</item>
+    <item name="android:backgroundTint">@color/green_neutral</item>
+    <item name="android:background">@drawable/bg_bottom_button</item>
+  </style>
+
+  <style name="AppCompatEditButton">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">55dp</item>
+    <item name="android:text">EDIT</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:contentDescription">Edit</item>
+    <item name="android:backgroundTint">@color/blue_mid</item>
+    <item name="android:background">@drawable/bg_bottom_button</item>
+  </style>
+
+  <style name="AppCompatSkipButton">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">55dp</item>
+    <item name="android:text">SKIP</item>
+    <item name="android:paddingStart">20dp</item>
+    <item name="android:paddingEnd">20dp</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:contentDescription">Skip</item>
+    <item name="android:backgroundTint">@color/grey_500</item>
+    <item name="android:background">@drawable/bg_bottom_button</item>
+  </style>
+
+  <style name="AppCompatRemoveButton">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">55dp</item>
+    <item name="android:layout_marginStart">8dp</item>
+    <item name="android:text">REMOVE</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:contentDescription">Remove</item>
+    <item name="android:backgroundTint">@color/red_light</item>
+    <item name="android:visibility">gone</item>
+    <item name="android:background">@drawable/bg_bottom_button</item>
+  </style>
+
+  <style name="AppCompatCancelButton">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">55dp</item>
+    <item name="android:layout_marginEnd">10dp</item>
+    <item name="android:text">Cancel</item>
+    <item name="android:textAllCaps">false</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:contentDescription">Cancel</item>
+    <item name="android:backgroundTint">@color/red_light</item>
+    <item name="android:visibility">gone</item>
+    <item name="android:background">@drawable/bg_bottom_button</item>
+  </style>
+
+  <!-- alternative parent option:  parent="@android:style/Widget.Material.Light.DatePicker">  -->
+  <style name="PickerDialogCustom" parent="Theme.AppCompat.Light.Dialog">
+    <item name="android:datePickerStyle">@style/PickerDialogCustom</item>
+    <item name="android:timePickerStyle">@style/PickerDialogCustom</item>
+    <item name="android:layout_margin">7dp</item>
+    <item name="android:datePickerMode">spinner</item>
+    <item name="colorPrimary">@color/md_theme_light_primary</item>
+    <item name="colorPrimaryDark">@color/md_theme_dark_primary</item>
+    <item name="android:buttonBarNegativeButtonStyle">@style/DatePickerTheme.ButtonBarNegativeButtonStyle</item>
+    <item name="android:buttonBarPositiveButtonStyle">@style/DatePickerTheme.ButtonBarPositiveButtonStyle</item>
+  </style>
+
+  <style name="DatePickerTheme.ButtonBarNegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+    <!--        <item name="android:textColor">#C5C5C5</item>-->
+    <!--        <item name="android:backgroundTint">#C5C5C5</item>-->
+  </style>
+
+  <style name="DatePickerTheme.ButtonBarPositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+    <!--        <item name="android:textColor">#C5C5C5</item>-->
+    <!--        <item name="android:backgroundTint">#64B5F6</item>-->
+  </style>
+
+  <style name="FullscreenDialogTheme" parent="Theme.Wideya">
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">false</item>
+    <item name="android:windowIsFloating">false</item>
+  </style>
+
+  <style name="SplashTheme" parent="Theme.Wideya">
+    <item name="android:windowBackground">@drawable/splash_background</item>
+  </style>
+
+</resources>

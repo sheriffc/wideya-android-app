@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvCurrentDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Mon, 11 Oct 2022"
+        tools:visibility="visible" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCurrentDate">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+              android:id="@+id/tcLayout"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              android:visibility="gone">
+
+                <include
+                  android:id="@+id/learnersCardView"
+                  layout="@layout/viewholder_report_card"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintEnd_toStartOf="@+id/learnersAttendanceCardView"
+                  app:layout_constraintHorizontal_bias="0.5"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:visibility="gone" />
+
+                <include
+                  android:id="@+id/learnersAttendanceCardView"
+                  layout="@layout/viewholder_report_card"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="20dp"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintHorizontal_bias="0.5"
+                  app:layout_constraintStart_toEndOf="@+id/learnersCardView"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:visibility="gone" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/lHighChart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                style="?attr/materialCardViewElevatedStyle"
+                app:layout_constraintTop_toTopOf="@+id/tcLayout"
+                >
+                <com.highsoft.highcharts.core.HIChartView
+                    android:id="@+id/hc"
+                    android:layout_width="match_parent"
+                    android:layout_height="330dp"
+                    />
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+      android:id="@+id/btnGroupDays"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:singleSelection="true">
+
+        <Button
+          android:id="@+id/prevBtn"
+          style="?attr/materialButtonOutlinedStyle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/previous_day"
+          app:icon="@drawable/ic_navigate_before_24px" />
+
+
+        <Button
+          android:id="@+id/todayBtn"
+          style="?attr/materialButtonOutlinedStyle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/today" />
+
+
+        <Button
+          android:id="@+id/nextBtn"
+          style="?attr/materialButtonOutlinedStyle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/next_day"
+          app:icon="@drawable/ic_navigate_next_24px"
+          app:iconGravity="textEnd" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+      android:id="@+id/btnGroupWeeks"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toTopOf="@+id/btnGroupDays"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:singleSelection="true">
+
+      <Button
+        android:id="@+id/prevWeekBtn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/previous_week"
+        app:icon="@drawable/ic_keyboard_double_arrow_left_24px" />
+
+      <Button
+        android:id="@+id/nextWeekBtn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_week"
+        app:icon="@drawable/ic_keyboard_double_arrow_right_24px"
+        app:iconGravity="textEnd" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

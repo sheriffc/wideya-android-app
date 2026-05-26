@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/navDrawerMenuTitle"
+        android:title="Menu">
+        <menu>
+            <item
+                android:id="@+id/SchoolProfileFragment"
+                android:icon="@drawable/ic_school"
+                android:title="Enter School"
+                android:visible="false"
+                tools:visible="true"/>
+
+            <item
+                android:id="@+id/SchoolListFragment"
+                android:icon="@drawable/ic_school"
+                android:title="Change School"
+                />
+
+            <item
+                android:id="@+id/SyncFragment"
+                android:icon="@drawable/ic_baseline_sync_24"
+                android:title="Data Sync"/>
+
+            <item
+                android:id="@+id/SettingsFragment"
+                android:icon="@drawable/ic_settings"
+                android:title="Settings"/>
+
+            <item
+                android:id="@+id/LearnerPerformanceFragment"
+                android:icon="@drawable/ic_checklist"
+                android:title="Learner Performance"/>
+
+        <!--    <item-->
+        <!--        android:id="@+id/logoutMenu"-->
+        <!--        android:icon="@drawable/ic_logout_24px"-->
+        <!--        android:title="Logout"/>-->
+        </menu>
+    </item>
+</menu>

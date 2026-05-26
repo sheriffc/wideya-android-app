@@ -1,0 +1,42 @@
+<resources>
+  <dimen name="fab_margin">16dp</dimen>
+  <dimen name="form_bottom_margin">15dp</dimen>
+
+  <dimen name="timetable_list_height">200dp</dimen>
+  <dimen name="timetable_day_font">20sp</dimen>
+  <dimen name="timetable_day_margin_top">15dp</dimen>
+  <dimen name="timetable_day_padding">15dp</dimen>
+  <dimen name="timetable_item_font">18sp</dimen>
+
+  <!--  School Management - Timetable-->
+  <dimen name="school_timetable_horizontal_padding">5dp</dimen>
+  <dimen name="school_timetable_cell_width">200dp</dimen>
+  <dimen name="school_timetable_corner_width">180dp</dimen>
+  <dimen name="school_timetable_time_width">90dp</dimen>
+
+  <!--  Teacher Timetable Dialog-->
+  <dimen name="items_margin_top">30dp</dimen>
+
+  <dimen name="margin_xsmall">16dp</dimen>
+  <dimen name="margin_small">32dp</dimen>
+  <dimen name="margin_medium">48dp</dimen>
+  <dimen name="margin_large">64dp</dimen>
+  <dimen name="margin_xlarge">92dp</dimen>
+
+  <dimen name="spacing_small">4dp</dimen>
+  <dimen name="spacing_medium">8dp</dimen>
+  <dimen name="spacing_large">16dp</dimen>
+
+  <dimen name="stroke_small">4dp</dimen>
+  <dimen name="stroke_medium">8dp</dimen>
+  <dimen name="stroke_large">12dp</dimen>
+
+  <dimen name="round_button_small">32dp</dimen>
+  <dimen name="round_button_medium">64dp</dimen>
+  <dimen name="round_button_large">92dp</dimen>
+
+  <dimen name="rect_button_margin">12dp</dimen>
+  <dimen name="rect_button_width">80dp</dimen>
+  <dimen name="rect_button_height">24dp</dimen>
+  <dimen name="shutter_button_margin">80dp</dimen>
+</resources>

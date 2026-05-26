@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="?attr/materialCardViewElevatedStyle">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="30dp">
+
+        <TextView
+            android:id="@+id/cardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Teachers" />
+
+        <TextView
+            android:id="@+id/cardSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/cardTitle"
+            app:layout_constraintTop_toBottomOf="@+id/cardTitle"
+            tools:text="525 registered" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/attendanceLabelView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="100dp"
+            app:layout_constraintEnd_toStartOf="@+id/attendancePercentage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardSubTitle">
+
+
+            <TextView
+                android:id="@+id/topAttendanceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                app:layout_constraintBottom_toTopOf="@+id/lineDivider"
+                app:layout_constraintStart_toStartOf="@+id/lineDivider"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="321 reported" />
+
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/lineDivider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                app:dividerInsetEnd="16dp"
+                app:dividerInsetStart="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/topAttendanceLabel" />
+
+            <TextView
+                android:id="@+id/bottomAttendanceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/lineDivider"
+                app:layout_constraintTop_toBottomOf="@+id/lineDivider"
+                tools:text="321 reported" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/attendancePercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="@+id/attendanceLabelView"
+            app:layout_constraintEnd_toStartOf="@+id/attendancePercentageSign"
+            app:layout_constraintTop_toTopOf="@+id/attendanceLabelView"
+            tools:text="60" />
+
+        <TextView
+            android:id="@+id/attendancePercentageSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="@+id/attendancePercentage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/attendancePercentage"
+            tools:text="%" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

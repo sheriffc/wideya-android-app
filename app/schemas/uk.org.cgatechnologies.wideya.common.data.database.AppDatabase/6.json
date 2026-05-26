@@ -1,0 +1,2720 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 6,
+    "identityHash": "3652a48bb75cd7bafa0b75e7b8f2fd10",
+    "entities": [
+      {
+        "tableName": "learner",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `person_uuid` TEXT NOT NULL, `learner_id` TEXT, `language_oid_strongest` TEXT, `maternal_status_oid` TEXT, `maternal_status_updated_at` TEXT, `disability_severity_oid_vision` TEXT, `disability_severity_oid_hearing` TEXT, `disability_severity_oid_mobility` TEXT, `disability_severity_oid_cognition` TEXT, `disability_severity_oid_selfcare` TEXT, `disability_severity_oid_communication` TEXT, `disability_other_condition_oid` TEXT, `guardian_person_uuid` TEXT, `guardian_relation_to_learner_oid` TEXT, `guardian_relation_to_learner_other` TEXT, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "person_uuid",
+            "columnName": "person_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "learner_id",
+            "columnName": "learner_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "language_oid_strongest",
+            "columnName": "language_oid_strongest",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "maternal_status_oid",
+            "columnName": "maternal_status_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "maternal_status_updated_at",
+            "columnName": "maternal_status_updated_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "disability_severity_oid_vision",
+            "columnName": "disability_severity_oid_vision",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "disability_severity_oid_hearing",
+            "columnName": "disability_severity_oid_hearing",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "disability_severity_oid_mobility",
+            "columnName": "disability_severity_oid_mobility",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "disability_severity_oid_cognition",
+            "columnName": "disability_severity_oid_cognition",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "disability_severity_oid_selfcare",
+            "columnName": "disability_severity_oid_selfcare",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "disability_severity_oid_communication",
+            "columnName": "disability_severity_oid_communication",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "disability_other_condition_oid",
+            "columnName": "disability_other_condition_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "guardian_person_uuid",
+            "columnName": "guardian_person_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "guardian_relation_to_learner_oid",
+            "columnName": "guardian_relation_to_learner_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "guardian_relation_to_learner_other",
+            "columnName": "guardian_relation_to_learner_other",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_learner_person_uuid",
+            "unique": false,
+            "columnNames": [
+              "person_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_learner_person_uuid` ON `${TABLE_NAME}` (`person_uuid`)"
+          },
+          {
+            "name": "index_learner_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_learner_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          },
+          {
+            "name": "index_learner_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_learner_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          },
+          {
+            "name": "index_learner_guardian_person_uuid",
+            "unique": false,
+            "columnNames": [
+              "guardian_person_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_learner_guardian_person_uuid` ON `${TABLE_NAME}` (`guardian_person_uuid`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "learner_id_sequence",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `emis_id` TEXT NOT NULL, `academic_year` TEXT NOT NULL, `last_sequence` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "emis_id",
+            "columnName": "emis_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "academic_year",
+            "columnName": "academic_year",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "last_sequence",
+            "columnName": "last_sequence",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_learner_id_sequence_emis_id_academic_year",
+            "unique": true,
+            "columnNames": [
+              "emis_id",
+              "academic_year"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_learner_id_sequence_emis_id_academic_year` ON `${TABLE_NAME}` (`emis_id`, `academic_year`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "school",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `name` TEXT NOT NULL, `school_education_level_oid` TEXT, `emis_id` TEXT, `wideya_id` TEXT, `payroll_sid` TEXT, `waec_id` TEXT, `fabinc_recordid` INTEGER, `district_id` TEXT, `chiefdom_id` TEXT, `section_name` TEXT, `town_name` TEXT, `address` TEXT, `district_office_uuid` TEXT, `lat` REAL, `lng` REAL, `media_photo_uuid` TEXT, `tablet_phone_number` TEXT, `active` INTEGER, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "school_education_level_oid",
+            "columnName": "school_education_level_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "emis_id",
+            "columnName": "emis_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "wideya_id",
+            "columnName": "wideya_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "payroll_sid",
+            "columnName": "payroll_sid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "waec_id",
+            "columnName": "waec_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fabinc_recordid",
+            "columnName": "fabinc_recordid",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "district_id",
+            "columnName": "district_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "chiefdom_id",
+            "columnName": "chiefdom_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "section_name",
+            "columnName": "section_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "town_name",
+            "columnName": "town_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "district_office_uuid",
+            "columnName": "district_office_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lat",
+            "columnName": "lat",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lng",
+            "columnName": "lng",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "media_photo_uuid",
+            "columnName": "media_photo_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tablet_phone_number",
+            "columnName": "tablet_phone_number",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_school_district_office_uuid",
+            "unique": false,
+            "columnNames": [
+              "district_office_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_district_office_uuid` ON `${TABLE_NAME}` (`district_office_uuid`)"
+          },
+          {
+            "name": "index_school_active",
+            "unique": false,
+            "columnNames": [
+              "active"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_active` ON `${TABLE_NAME}` (`active`)"
+          },
+          {
+            "name": "index_school_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          },
+          {
+            "name": "index_school_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          },
+          {
+            "name": "index_school_media_photo_uuid",
+            "unique": false,
+            "columnNames": [
+              "media_photo_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_media_photo_uuid` ON `${TABLE_NAME}` (`media_photo_uuid`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "school_academic_year",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `academic_year_name` TEXT NOT NULL, `academic_year` INTEGER NOT NULL, `date_from` TEXT NOT NULL, `date_to` TEXT, `active` INTEGER, `created_at` TEXT NOT NULL, `updated_at` TEXT NOT NULL, `deleted_at` TEXT, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "academic_year_name",
+            "columnName": "academic_year_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "academic_year",
+            "columnName": "academic_year",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date_from",
+            "columnName": "date_from",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date_to",
+            "columnName": "date_to",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_school_academic_year_academic_year",
+            "unique": false,
+            "columnNames": [
+              "academic_year"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_academic_year_academic_year` ON `${TABLE_NAME}` (`academic_year`)"
+          },
+          {
+            "name": "index_school_academic_year_active",
+            "unique": false,
+            "columnNames": [
+              "active"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_academic_year_active` ON `${TABLE_NAME}` (`active`)"
+          },
+          {
+            "name": "index_school_academic_year_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_academic_year_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "school_group",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `school_uuid` TEXT NOT NULL, `academic_year` INTEGER NOT NULL, `teacher_uuid` TEXT, `school_group_name` TEXT, `school_group_level_oid` TEXT, `active` INTEGER, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "school_uuid",
+            "columnName": "school_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "academic_year",
+            "columnName": "academic_year",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "teacher_uuid",
+            "columnName": "teacher_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "school_group_name",
+            "columnName": "school_group_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "school_group_level_oid",
+            "columnName": "school_group_level_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_school_group_school_uuid_academic_year_teacher_uuid",
+            "unique": false,
+            "columnNames": [
+              "school_uuid",
+              "academic_year",
+              "teacher_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_group_school_uuid_academic_year_teacher_uuid` ON `${TABLE_NAME}` (`school_uuid`, `academic_year`, `teacher_uuid`)"
+          },
+          {
+            "name": "index_school_group_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_group_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          },
+          {
+            "name": "index_school_group_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_group_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          },
+          {
+            "name": "index_school_group_active",
+            "unique": false,
+            "columnNames": [
+              "active"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_group_active` ON `${TABLE_NAME}` (`active`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "school_learner_admission",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `school_uuid` TEXT NOT NULL, `learner_uuid` TEXT NOT NULL, `admission_number` INTEGER, `start_date` TEXT, `end_date` TEXT, `end_reason_learner_oid` TEXT, `end_reason_learner_other` TEXT, `end_reason_learner_detail` TEXT, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "school_uuid",
+            "columnName": "school_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "learner_uuid",
+            "columnName": "learner_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "admission_number",
+            "columnName": "admission_number",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "start_date",
+            "columnName": "start_date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "end_date",
+            "columnName": "end_date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "end_reason_learner_oid",
+            "columnName": "end_reason_learner_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "end_reason_learner_other",
+            "columnName": "end_reason_learner_other",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "end_reason_learner_detail",
+            "columnName": "end_reason_learner_detail",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_school_learner_admission_school_uuid_learner_uuid",
+            "unique": false,
+            "columnNames": [
+              "school_uuid",
+              "learner_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_learner_admission_school_uuid_learner_uuid` ON `${TABLE_NAME}` (`school_uuid`, `learner_uuid`)"
+          },
+          {
+            "name": "index_school_learner_admission_school_uuid_updated_at",
+            "unique": false,
+            "columnNames": [
+              "school_uuid",
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_learner_admission_school_uuid_updated_at` ON `${TABLE_NAME}` (`school_uuid`, `updated_at`)"
+          },
+          {
+            "name": "index_school_learner_admission_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_learner_admission_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "school_learner_enrolment",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `academic_year` INTEGER NOT NULL, `learner_uuid` TEXT NOT NULL, `school_group_uuid` TEXT, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "academic_year",
+            "columnName": "academic_year",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "learner_uuid",
+            "columnName": "learner_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "school_group_uuid",
+            "columnName": "school_group_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_school_learner_enrolment_academic_year",
+            "unique": false,
+            "columnNames": [
+              "academic_year"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_learner_enrolment_academic_year` ON `${TABLE_NAME}` (`academic_year`)"
+          },
+          {
+            "name": "index_school_learner_enrolment_learner_uuid",
+            "unique": false,
+            "columnNames": [
+              "learner_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_learner_enrolment_learner_uuid` ON `${TABLE_NAME}` (`learner_uuid`)"
+          },
+          {
+            "name": "index_school_learner_enrolment_school_group_uuid",
+            "unique": false,
+            "columnNames": [
+              "school_group_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_learner_enrolment_school_group_uuid` ON `${TABLE_NAME}` (`school_group_uuid`)"
+          },
+          {
+            "name": "index_school_learner_enrolment_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_school_learner_enrolment_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "teacher",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `person_uuid` TEXT NOT NULL, `school_uuid` TEXT, `employment_status_oid` TEXT, `teacher_role_oid` TEXT, `pin` TEXT, `nassit_number` TEXT, `tsc_licence_id` TEXT, `start_date` TEXT, `end_date` TEXT, `end_reason_teacher_oid` TEXT, `end_reason_teacher_other` TEXT, `end_reason_teacher_detail` TEXT, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "person_uuid",
+            "columnName": "person_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "school_uuid",
+            "columnName": "school_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "employment_status_oid",
+            "columnName": "employment_status_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "teacher_role_oid",
+            "columnName": "teacher_role_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pin",
+            "columnName": "pin",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nassit_number",
+            "columnName": "nassit_number",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tsc_licence_id",
+            "columnName": "tsc_licence_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "start_date",
+            "columnName": "start_date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "end_date",
+            "columnName": "end_date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "end_reason_teacher_oid",
+            "columnName": "end_reason_teacher_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "end_reason_teacher_other",
+            "columnName": "end_reason_teacher_other",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "end_reason_teacher_detail",
+            "columnName": "end_reason_teacher_detail",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_teacher_school_uuid",
+            "unique": false,
+            "columnNames": [
+              "school_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_teacher_school_uuid` ON `${TABLE_NAME}` (`school_uuid`)"
+          },
+          {
+            "name": "index_teacher_school_uuid_updated_at",
+            "unique": false,
+            "columnNames": [
+              "school_uuid",
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_teacher_school_uuid_updated_at` ON `${TABLE_NAME}` (`school_uuid`, `updated_at`)"
+          },
+          {
+            "name": "index_teacher_person_uuid",
+            "unique": false,
+            "columnNames": [
+              "person_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_teacher_person_uuid` ON `${TABLE_NAME}` (`person_uuid`)"
+          },
+          {
+            "name": "index_teacher_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_teacher_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "teacher_payroll",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `school_sid` INTEGER, `school_emis_id` TEXT, `first_name` TEXT NOT NULL, `middle_name` TEXT, `last_name` TEXT NOT NULL, `sex` TEXT, `date_of_birth` TEXT, `pin` TEXT, `nin` TEXT, `nassit_number` TEXT, `created_at` TEXT NOT NULL, `updated_at` TEXT NOT NULL, `deleted_at` TEXT, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "school_sid",
+            "columnName": "school_sid",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "school_emis_id",
+            "columnName": "school_emis_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "first_name",
+            "columnName": "first_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "middle_name",
+            "columnName": "middle_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "last_name",
+            "columnName": "last_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sex",
+            "columnName": "sex",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "date_of_birth",
+            "columnName": "date_of_birth",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pin",
+            "columnName": "pin",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nin",
+            "columnName": "nin",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nassit_number",
+            "columnName": "nassit_number",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_teacher_payroll_pin",
+            "unique": false,
+            "columnNames": [
+              "pin"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_teacher_payroll_pin` ON `${TABLE_NAME}` (`pin`)"
+          },
+          {
+            "name": "index_teacher_payroll_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_teacher_payroll_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "teacher_timetable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `teacher_uuid` TEXT NOT NULL, `school_uuid` TEXT NOT NULL, `school_group_uuid` TEXT, `school_subject_oid` TEXT, `school_subject_other` TEXT, `day_of_the_week_oid` TEXT NOT NULL, `start_time` TEXT, `end_time` TEXT, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "teacher_uuid",
+            "columnName": "teacher_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "school_uuid",
+            "columnName": "school_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "school_group_uuid",
+            "columnName": "school_group_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "school_subject_oid",
+            "columnName": "school_subject_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "school_subject_other",
+            "columnName": "school_subject_other",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "day_of_the_week_oid",
+            "columnName": "day_of_the_week_oid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "start_time",
+            "columnName": "start_time",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "end_time",
+            "columnName": "end_time",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_teacher_timetable_teacher_uuid",
+            "unique": false,
+            "columnNames": [
+              "teacher_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_teacher_timetable_teacher_uuid` ON `${TABLE_NAME}` (`teacher_uuid`)"
+          },
+          {
+            "name": "index_teacher_timetable_school_uuid",
+            "unique": false,
+            "columnNames": [
+              "school_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_teacher_timetable_school_uuid` ON `${TABLE_NAME}` (`school_uuid`)"
+          },
+          {
+            "name": "index_teacher_timetable_school_group_uuid",
+            "unique": false,
+            "columnNames": [
+              "school_group_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_teacher_timetable_school_group_uuid` ON `${TABLE_NAME}` (`school_group_uuid`)"
+          },
+          {
+            "name": "index_teacher_timetable_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_teacher_timetable_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "district_office",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `name` TEXT NOT NULL, `district_id` INTEGER, `leader_id` TEXT, `lat` REAL, `lng` REAL, `display_order` INTEGER, `active` INTEGER, `created_at` TEXT NOT NULL, `updated_at` TEXT NOT NULL, `deleted_at` TEXT, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "district_id",
+            "columnName": "district_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "leader_id",
+            "columnName": "leader_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lat",
+            "columnName": "lat",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lng",
+            "columnName": "lng",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "display_order",
+            "columnName": "display_order",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_district_office_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_district_office_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "geo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `parent_id` INTEGER, `name` TEXT NOT NULL, `type` INTEGER NOT NULL, `fabinc_recordid` INTEGER, `display_order` INTEGER, `active` INTEGER NOT NULL, `created_at` TEXT NOT NULL, `updated_at` TEXT NOT NULL, `deleted_at` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parent_id",
+            "columnName": "parent_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fabinc_recordid",
+            "columnName": "fabinc_recordid",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "display_order",
+            "columnName": "display_order",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_geo_parent_id",
+            "unique": false,
+            "columnNames": [
+              "parent_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_geo_parent_id` ON `${TABLE_NAME}` (`parent_id`)"
+          },
+          {
+            "name": "index_geo_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_geo_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "media_photo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `ref_uuid` TEXT, `base64_data` TEXT, `display_orientation` INTEGER NOT NULL, `active` INTEGER NOT NULL, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ref_uuid",
+            "columnName": "ref_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "base64_data",
+            "columnName": "base64_data",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "display_orientation",
+            "columnName": "display_orientation",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_media_photo_ref_uuid",
+            "unique": false,
+            "columnNames": [
+              "ref_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_media_photo_ref_uuid` ON `${TABLE_NAME}` (`ref_uuid`)"
+          },
+          {
+            "name": "index_media_photo_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_media_photo_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          },
+          {
+            "name": "index_media_photo_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_media_photo_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          },
+          {
+            "name": "index_media_photo_active",
+            "unique": false,
+            "columnNames": [
+              "active"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_media_photo_active` ON `${TABLE_NAME}` (`active`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "option_list",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `parent_id` INTEGER, `list_name` TEXT NOT NULL, `item_name` TEXT, `item_id` TEXT, `item_extra` TEXT, `item_asc_fabinc_recordid` TEXT, `display_order` INTEGER, `active` INTEGER NOT NULL, `created_at` TEXT NOT NULL, `updated_at` TEXT NOT NULL, `deleted_at` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parent_id",
+            "columnName": "parent_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "list_name",
+            "columnName": "list_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "item_name",
+            "columnName": "item_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "item_id",
+            "columnName": "item_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "item_extra",
+            "columnName": "item_extra",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "item_asc_fabinc_recordid",
+            "columnName": "item_asc_fabinc_recordid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "display_order",
+            "columnName": "display_order",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_option_list_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_option_list_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          },
+          {
+            "name": "index_option_list_list_name_item_id_active",
+            "unique": false,
+            "columnNames": [
+              "list_name",
+              "item_id",
+              "active"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_option_list_list_name_item_id_active` ON `${TABLE_NAME}` (`list_name`, `item_id`, `active`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "option_list_link",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `parent_list_name` TEXT NOT NULL, `child_list_name` TEXT NOT NULL, `parent_id` INTEGER NOT NULL, `child_id` INTEGER NOT NULL, `created_at` TEXT NOT NULL, `updated_at` TEXT NOT NULL, `deleted_at` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parent_list_name",
+            "columnName": "parent_list_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "child_list_name",
+            "columnName": "child_list_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parent_id",
+            "columnName": "parent_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "child_id",
+            "columnName": "child_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_option_list_link_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_option_list_link_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          },
+          {
+            "name": "index_option_list_link_parent_list_name_child_list_name_deleted_at",
+            "unique": false,
+            "columnNames": [
+              "parent_list_name",
+              "child_list_name",
+              "deleted_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_option_list_link_parent_list_name_child_list_name_deleted_at` ON `${TABLE_NAME}` (`parent_list_name`, `child_list_name`, `deleted_at`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "person",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `last_name` TEXT, `middle_name` TEXT, `first_name` TEXT, `sex_oid` TEXT, `date_of_birth` TEXT, `nin` TEXT, `portrait_uuid` TEXT, `phone_1` TEXT, `phone_2` TEXT, `email` TEXT, `address` TEXT, `fp_lt_uuid` TEXT, `fp_li_uuid` TEXT, `fp_rt_uuid` TEXT, `fp_ri_uuid` TEXT, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "last_name",
+            "columnName": "last_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "middle_name",
+            "columnName": "middle_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "first_name",
+            "columnName": "first_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sex_oid",
+            "columnName": "sex_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "date_of_birth",
+            "columnName": "date_of_birth",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nin",
+            "columnName": "nin",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "portrait_uuid",
+            "columnName": "portrait_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phone_1",
+            "columnName": "phone_1",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phone_2",
+            "columnName": "phone_2",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fp_lt_uuid",
+            "columnName": "fp_lt_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fp_li_uuid",
+            "columnName": "fp_li_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fp_rt_uuid",
+            "columnName": "fp_rt_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fp_ri_uuid",
+            "columnName": "fp_ri_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_person_nin",
+            "unique": false,
+            "columnNames": [
+              "nin"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_nin` ON `${TABLE_NAME}` (`nin`)"
+          },
+          {
+            "name": "index_person_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          },
+          {
+            "name": "index_person_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          },
+          {
+            "name": "index_person_portrait_uuid",
+            "unique": false,
+            "columnNames": [
+              "portrait_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_portrait_uuid` ON `${TABLE_NAME}` (`portrait_uuid`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "person_attendance",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `date` TEXT NOT NULL, `person_uuid` TEXT NOT NULL, `entity_type_oid` TEXT NOT NULL, `academic_year` INTEGER, `school_uuid` TEXT, `school_group_uuid` TEXT, `attendance_am_status_oid` TEXT, `attendance_pm_status_oid` TEXT, `attendance_status_oid` TEXT, `absent_reason_oid` TEXT, `absent_reason_other` TEXT, `lat` REAL, `lng` REAL, `biometric_method_oid` TEXT, `biometric_reference` TEXT, `submitted` INTEGER, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "person_uuid",
+            "columnName": "person_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entity_type_oid",
+            "columnName": "entity_type_oid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "academic_year",
+            "columnName": "academic_year",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "school_uuid",
+            "columnName": "school_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "school_group_uuid",
+            "columnName": "school_group_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attendance_am_status_oid",
+            "columnName": "attendance_am_status_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attendance_pm_status_oid",
+            "columnName": "attendance_pm_status_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attendance_status_oid",
+            "columnName": "attendance_status_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "absent_reason_oid",
+            "columnName": "absent_reason_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "absent_reason_other",
+            "columnName": "absent_reason_other",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lat",
+            "columnName": "lat",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lng",
+            "columnName": "lng",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "biometric_method_oid",
+            "columnName": "biometric_method_oid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "biometric_reference",
+            "columnName": "biometric_reference",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "submitted",
+            "columnName": "submitted",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_person_attendance_person_uuid",
+            "unique": false,
+            "columnNames": [
+              "person_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_attendance_person_uuid` ON `${TABLE_NAME}` (`person_uuid`)"
+          },
+          {
+            "name": "index_person_attendance_date_person_uuid_entity_type_oid_academic_year_school_uuid_school_group_uuid",
+            "unique": false,
+            "columnNames": [
+              "date",
+              "person_uuid",
+              "entity_type_oid",
+              "academic_year",
+              "school_uuid",
+              "school_group_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_attendance_date_person_uuid_entity_type_oid_academic_year_school_uuid_school_group_uuid` ON `${TABLE_NAME}` (`date`, `person_uuid`, `entity_type_oid`, `academic_year`, `school_uuid`, `school_group_uuid`)"
+          },
+          {
+            "name": "index_person_attendance_school_uuid_updated_at",
+            "unique": false,
+            "columnNames": [
+              "school_uuid",
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_attendance_school_uuid_updated_at` ON `${TABLE_NAME}` (`school_uuid`, `updated_at`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "person_contact",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `person_uuid` TEXT NOT NULL, `contact_type_oid` TEXT NOT NULL, `contact_detail` TEXT NOT NULL, `active` INTEGER NOT NULL, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "person_uuid",
+            "columnName": "person_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contact_type_oid",
+            "columnName": "contact_type_oid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contact_detail",
+            "columnName": "contact_detail",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_person_contact_person_uuid",
+            "unique": false,
+            "columnNames": [
+              "person_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_contact_person_uuid` ON `${TABLE_NAME}` (`person_uuid`)"
+          },
+          {
+            "name": "index_person_contact_updated_by",
+            "unique": false,
+            "columnNames": [
+              "updated_by"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_contact_updated_by` ON `${TABLE_NAME}` (`updated_by`)"
+          },
+          {
+            "name": "index_person_contact_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_contact_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          },
+          {
+            "name": "index_person_contact_active",
+            "unique": false,
+            "columnNames": [
+              "active"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_contact_active` ON `${TABLE_NAME}` (`active`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "person_fingerprint",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `person_uuid` TEXT NOT NULL, `finger_position_oid` TEXT NOT NULL, `fp_a_cbor` TEXT NOT NULL, `fp_a_nfiq` INTEGER NOT NULL, `fp_b_cbor` TEXT NOT NULL, `fp_b_nfiq` INTEGER NOT NULL, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `updated_by` INTEGER NOT NULL, `deleted_at` TEXT, `deleted_by` INTEGER, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`uuid`))",
+        "fields": [
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "person_uuid",
+            "columnName": "person_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "finger_position_oid",
+            "columnName": "finger_position_oid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fp_a_cbor",
+            "columnName": "fp_a_cbor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fp_a_nfiq",
+            "columnName": "fp_a_nfiq",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fp_b_cbor",
+            "columnName": "fp_b_cbor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fp_b_nfiq",
+            "columnName": "fp_b_nfiq",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_by",
+            "columnName": "updated_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted_at",
+            "columnName": "deleted_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deleted_by",
+            "columnName": "deleted_by",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uuid"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_person_fingerprint_person_uuid",
+            "unique": false,
+            "columnNames": [
+              "person_uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_fingerprint_person_uuid` ON `${TABLE_NAME}` (`person_uuid`)"
+          },
+          {
+            "name": "index_person_fingerprint_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_fingerprint_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          },
+          {
+            "name": "index_person_fingerprint_updated_at",
+            "unique": false,
+            "columnNames": [
+              "updated_at"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_person_fingerprint_updated_at` ON `${TABLE_NAME}` (`updated_at`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "log_sync",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `message` TEXT NOT NULL, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `sync_flag` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "message",
+            "columnName": "message",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_log_sync_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_log_sync_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "log_audit",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `install_id` TEXT NOT NULL, `operation` INTEGER NOT NULL, `json_string` TEXT NOT NULL, `created_at` TEXT NOT NULL, `created_by` INTEGER NOT NULL, `sync_flag` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "install_id",
+            "columnName": "install_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "operation",
+            "columnName": "operation",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "json_string",
+            "columnName": "json_string",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created_by",
+            "columnName": "created_by",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sync_flag",
+            "columnName": "sync_flag",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_log_audit_install_id",
+            "unique": false,
+            "columnNames": [
+              "install_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_log_audit_install_id` ON `${TABLE_NAME}` (`install_id`)"
+          },
+          {
+            "name": "index_log_audit_sync_flag",
+            "unique": false,
+            "columnNames": [
+              "sync_flag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_log_audit_sync_flag` ON `${TABLE_NAME}` (`sync_flag`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "table_states_uni_tables",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`table_name` TEXT NOT NULL, `max_synced_at` TEXT NOT NULL, `max_pk` TEXT NOT NULL, PRIMARY KEY(`table_name`))",
+        "fields": [
+          {
+            "fieldPath": "table_name",
+            "columnName": "table_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "max_synced_at",
+            "columnName": "max_synced_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "max_pk",
+            "columnName": "max_pk",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "table_name"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "table_states_bi_tables",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`school_uuid` TEXT NOT NULL, `table_name` TEXT NOT NULL, `max_synced_at` TEXT NOT NULL, `max_pk` TEXT NOT NULL, PRIMARY KEY(`school_uuid`, `table_name`))",
+        "fields": [
+          {
+            "fieldPath": "school_uuid",
+            "columnName": "school_uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "table_name",
+            "columnName": "table_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "max_synced_at",
+            "columnName": "max_synced_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "max_pk",
+            "columnName": "max_pk",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "school_uuid",
+            "table_name"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3652a48bb75cd7bafa0b75e7b8f2fd10')"
+    ]
+  }
+}

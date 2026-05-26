@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/SchoolProfileFragment"
+        android:icon="@drawable/ic_school"
+        android:title="Administration" />
+
+  <item
+    android:id="@+id/SchoolTeacherAttendanceListFragment"
+    android:icon="@drawable/ic_attendance"
+    android:title="Teacher Attendance" />
+
+  <item
+    android:id="@+id/SchoolLearnerAttendanceListFragment"
+    android:icon="@drawable/ic_attendance"
+    android:title="Learner Attendance" />
+
+    <item
+        android:id="@+id/SchoolAnalysisFragment"
+        android:icon="@drawable/ic_analytics"
+        android:title="Analysis" />
+</menu>

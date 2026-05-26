@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  style="?attr/materialCardViewElevatedStyle"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="8dp">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="8dp"
+    android:paddingEnd="16dp"
+    tools:ignore="RtlSymmetry">
+
+    <ImageView
+      android:id="@+id/learnerIcon"
+      android:layout_width="36dp"
+      android:layout_height="36dp"
+      android:layout_marginStart="16dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/ic_account_circle_black_24dp"
+      tools:ignore="ContentDescription" />
+
+    <TextView
+      android:id="@+id/tvLearnerName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="8dp"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/learnerIcon"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="Kamara, Aminata" />
+
+    <TextView
+      android:id="@+id/tvSexTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="4dp"
+      android:text="@string/gender_colon"
+      app:layout_constraintEnd_toStartOf="@+id/tvSex"
+      app:layout_constraintTop_toTopOf="@+id/tvSex" />
+
+    <TextView
+      android:id="@+id/tvSex"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tvLearnerName"
+      tools:text="Female" />
+
+    <TextView
+      android:id="@+id/tvDobTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:text="@string/date_of_birth_colon"
+      app:layout_constraintStart_toStartOf="@+id/tvLearnerName"
+      app:layout_constraintTop_toBottomOf="@+id/tvLearnerName" />
+
+    <TextView
+      android:id="@+id/tvDob"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      app:layout_constraintStart_toEndOf="@+id/tvDobTitle"
+      app:layout_constraintTop_toTopOf="@+id/tvDobTitle"
+      tools:text="2010-05-12" />
+
+    <TextView
+      android:id="@+id/tvNinTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:text="@string/nin_colon"
+      app:layout_constraintStart_toStartOf="@+id/tvLearnerName"
+      app:layout_constraintTop_toBottomOf="@+id/tvDobTitle" />
+
+    <TextView
+      android:id="@+id/tvNin"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      app:layout_constraintStart_toEndOf="@+id/tvNinTitle"
+      app:layout_constraintTop_toTopOf="@+id/tvNinTitle"
+      tools:text="AB1234CD" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
