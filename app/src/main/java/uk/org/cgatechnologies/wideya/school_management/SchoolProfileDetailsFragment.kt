@@ -46,8 +46,8 @@ private val ELECTRICITY_OIDS  = arrayOf("none", "edsa", "generator", "solar", "p
 private val MNO_ITEMS = arrayOf("None", "Africell", "Orange", "Qcell", "Sierra Tel")
 private val MNO_OIDS  = arrayOf("none", "africell", "orange", "qcell", "sierra_tel")
 
-private val LEARNING_ITEMS = arrayOf("Textbooks", "Teaching Aid", "Science Equipment")
-private val LEARNING_OIDS  = arrayOf("textbooks", "teaching_aid", "science_equipment")
+private val LEARNING_ITEMS = arrayOf("None", "Textbooks", "Teaching Aid", "Science Equipment")
+private val LEARNING_OIDS  = arrayOf("none", "textbooks", "teaching_aid", "science_equipment")
 
 class SchoolProfileDetailsFragment : Fragment() {
 
@@ -362,10 +362,10 @@ class SchoolProfileDetailsFragment : Fragment() {
             setViewBackgroundColorToEditable(tlLearningMaterials)
             etLearningMaterials.isFocusable = false
             etLearningMaterials.setOnClickListener {
-                showMultiSelectDialog("Learning Materials", LEARNING_ITEMS, LEARNING_OIDS, etLearningMaterials, hasNone = false)
+                showMultiSelectDialog("Learning Materials", LEARNING_ITEMS, LEARNING_OIDS, etLearningMaterials, hasNone = true)
             }
             tlLearningMaterials.setEndIconOnClickListener {
-                showMultiSelectDialog("Learning Materials", LEARNING_ITEMS, LEARNING_OIDS, etLearningMaterials, hasNone = false)
+                showMultiSelectDialog("Learning Materials", LEARNING_ITEMS, LEARNING_OIDS, etLearningMaterials, hasNone = true)
             }
 
             btnFeedingYes.isEnabled = true
