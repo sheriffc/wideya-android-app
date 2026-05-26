@@ -111,8 +111,6 @@
 
   <!-- alternative parent option:  parent="@android:style/Widget.Material.Light.DatePicker">  -->
   <style name="PickerDialogCustom" parent="Theme.AppCompat.Light.Dialog">
-    <item name="android:datePickerStyle">@style/PickerDialogCustom</item>
-    <item name="android:timePickerStyle">@style/PickerDialogCustom</item>
     <item name="android:layout_margin">7dp</item>
     <item name="android:datePickerMode">spinner</item>
     <item name="colorPrimary">@color/md_theme_light_primary</item>
