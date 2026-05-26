@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 import uk.org.cgatechnologies.wideya.common.utils.Utils
 import uk.org.cgatechnologies.wideya.databinding.FragmentLearnerAssessmentBinding
@@ -129,14 +130,36 @@ class LearnerAssessmentFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             val termOid = selectedTermOid() ?: return@setOnClickListener
             val acYear  = Utils.getAcademicYear().toShort()
-            vm.saveAssessments(
-                schoolUuid   = schoolVm.currentSchool.uuid,
-                termOid      = termOid,
-                academicYear = acYear,
-                items        = adapter.getCurrentItems()
-            )
-            findNavController().popBackStack()
+
+            val blankSubjects = adapter.getCurrentItems()
+                .filter { item ->
+                    if (selectedAssessmentNumber == 1) item.assessment_1_score == null
+                    else item.assessment_2_score == null
+                }
+                .map { it.subject_name }
+
+            if (blankSubjects.isEmpty()) {
+                performSave(termOid, acYear)
+            } else {
+                val subjectList = blankSubjects.joinToString("\n") { "• $it" }
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Missing Grades")
+                    .setMessage("The following subjects have no grade entered:\n\n$subjectList\n\nSave anyway without grades for these subjects?")
+                    .setPositiveButton("Save Anyway") { _, _ -> performSave(termOid, acYear) }
+                    .setNegativeButton("Go Back", null)
+                    .show()
+            }
         }
+    }
+
+    private fun performSave(termOid: String, acYear: Short) {
+        vm.saveAssessments(
+            schoolUuid   = schoolVm.currentSchool.uuid,
+            termOid      = termOid,
+            academicYear = acYear,
+            items        = adapter.getCurrentItems()
+        )
+        findNavController().popBackStack()
     }
 
     private fun selectedTermOid(): String? {
