@@ -188,21 +188,21 @@ class TeacherManagementViewModel(private val application: Application) :
         }
     }
 
-    fun setNonPayrollTeacherList() {
+    fun setNonPayrollTeacherList(schoolUuid: String?) {
         nonPayrollListFlowJob.cancel()
         nonPayrollListFlowJob = viewModelScope.launch(Dispatchers.IO) {
             _nonPayrollTeacherList.value = LatestNonPayrollTeacherListUiState.Loading
-            repository.getNonPayrollTeacherList().cancellable().collect { list ->
+            repository.getNonPayrollTeacherList(schoolUuid).cancellable().collect { list ->
                 _nonPayrollTeacherList.value = LatestNonPayrollTeacherListUiState.Success(list)
             }
         }
     }
 
-    fun setNonPayrollTeacherListByQuery(query: String?) {
+    fun setNonPayrollTeacherListByQuery(schoolUuid: String?, query: String?) {
         nonPayrollListFlowJob.cancel()
         nonPayrollListFlowJob = viewModelScope.launch(Dispatchers.IO) {
             _nonPayrollTeacherList.value = LatestNonPayrollTeacherListUiState.Loading
-            repository.getNonPayrollTeacherListByRawQuery(query.toString())
+            repository.getNonPayrollTeacherListByRawQuery(schoolUuid.orEmpty(), query.toString())
                 .cancellable()
                 .collect { list ->
                     _nonPayrollTeacherList.value = LatestNonPayrollTeacherListUiState.Success(list)

@@ -117,15 +117,25 @@ abstract class TeacherManagementDao {
             FROM teacher_payroll tp
             WHERE (tp.pin IS NULL OR tp.pin = '')
                 AND (tp.deleted_at IS NULL OR tp.deleted_at = '')
+                AND (
+                    tp.nin IS NULL OR tp.nin = ''
+                    OR NOT EXISTS (
+                        SELECT 1 FROM teacher t
+                        JOIN person p ON p.uuid = t.person_uuid
+                        WHERE t.school_uuid = :schoolUuid
+                            AND (t.deleted_at IS NULL OR t.deleted_at = '')
+                            AND p.nin = tp.nin
+                    )
+                )
             ORDER BY full_name
         """
     )
-    abstract fun getNonPayrollTeacherList(): Flow<List<TeacherPayrollModel>>
+    abstract fun getNonPayrollTeacherList(schoolUuid: String?): Flow<List<TeacherPayrollModel>>
 
     @RawQuery(observedEntities = [TeacherPayroll::class])
     abstract fun getNonPayrollTeacherListByRawQuery(query: SupportSQLiteQuery): Flow<List<TeacherPayrollModel>>
 
-    fun buildNonPayrollTeacherListByRawQuery(query: String): Flow<List<TeacherPayrollModel>> {
+    fun buildNonPayrollTeacherListByRawQuery(schoolUuid: String, query: String): Flow<List<TeacherPayrollModel>> {
         val searchTerms = query.replace("""[\s]+""", " ").split(" ")
         var whereString = ""
         searchTerms.forEach {
@@ -149,6 +159,16 @@ abstract class TeacherManagementDao {
             FROM teacher_payroll tp
             WHERE (tp.pin IS NULL OR tp.pin = '')
                 AND (tp.deleted_at IS NULL OR tp.deleted_at = '')
+                AND (
+                    tp.nin IS NULL OR tp.nin = ''
+                    OR NOT EXISTS (
+                        SELECT 1 FROM teacher t
+                        JOIN person p ON p.uuid = t.person_uuid
+                        WHERE t.school_uuid = '$schoolUuid'
+                            AND (t.deleted_at IS NULL OR t.deleted_at = '')
+                            AND p.nin = tp.nin
+                    )
+                )
                 $whereString
             ORDER BY full_name
         """

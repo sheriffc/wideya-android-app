@@ -20,6 +20,7 @@ import kotlinx.coroutines.launch
 import uk.org.cgatechnologies.wideya.R
 import uk.org.cgatechnologies.wideya.common.adapters.CommonListAdapter
 import uk.org.cgatechnologies.wideya.databinding.FragmentCommonListBinding
+import uk.org.cgatechnologies.wideya.school_management.SchoolManagementViewModel
 import uk.org.cgatechnologies.wideya.teacher_management.models.TeacherPayrollModel
 
 private const val TAG: String = "NonPayrollListFragment"
@@ -30,6 +31,7 @@ class TeacherNonPayrollListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val teacherManagementViewModel by activityViewModels<TeacherManagementViewModel>()
+    private val schoolManagementViewModel by activityViewModels<SchoolManagementViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,7 +45,7 @@ class TeacherNonPayrollListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        teacherManagementViewModel.setNonPayrollTeacherList()
+        teacherManagementViewModel.setNonPayrollTeacherList(schoolManagementViewModel.currentSchool.uuid)
 
         val commonListAdapter = CommonListAdapter()
         commonListAdapter.onPayrollTeacherItemClick = { teacher ->
@@ -109,13 +111,19 @@ class TeacherNonPayrollListFragment : Fragment() {
                 override fun onQueryTextChange(newText: String): Boolean {
                     viewLifecycleOwner.lifecycleScope.launch {
                         delay(300L)
-                        teacherManagementViewModel.setNonPayrollTeacherListByQuery(newText)
+                        teacherManagementViewModel.setNonPayrollTeacherListByQuery(
+                            schoolManagementViewModel.currentSchool.uuid,
+                            newText
+                        )
                     }
                     return true
                 }
 
                 override fun onQueryTextSubmit(query: String): Boolean {
-                    teacherManagementViewModel.setNonPayrollTeacherListByQuery(query)
+                    teacherManagementViewModel.setNonPayrollTeacherListByQuery(
+                        schoolManagementViewModel.currentSchool.uuid,
+                        query
+                    )
                     return true
                 }
             })

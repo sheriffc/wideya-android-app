@@ -32,11 +32,11 @@ class TeacherManagementRepository(private val teacherManagementDao: TeacherManag
 
     //Non-Payroll Teacher
     @WorkerThread
-    fun getNonPayrollTeacherList() = teacherManagementDao.getNonPayrollTeacherList()
+    fun getNonPayrollTeacherList(schoolUuid: String?) = teacherManagementDao.getNonPayrollTeacherList(schoolUuid)
 
     @WorkerThread
-    fun getNonPayrollTeacherListByRawQuery(query: String) =
-        teacherManagementDao.buildNonPayrollTeacherListByRawQuery(query)
+    fun getNonPayrollTeacherListByRawQuery(schoolUuid: String, query: String) =
+        teacherManagementDao.buildNonPayrollTeacherListByRawQuery(schoolUuid, query)
 
     @WorkerThread
     fun getTeacherTimetableList(uuid: String?) = teacherManagementDao.getTeacherTimetableList(uuid)
