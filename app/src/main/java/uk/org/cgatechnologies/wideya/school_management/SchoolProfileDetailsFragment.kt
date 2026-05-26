@@ -408,17 +408,24 @@ class SchoolProfileDetailsFragment : Fragment() {
             ?: emptyList()
         val checked = BooleanArray(items.size) { oids[it] in currentOids }
 
-        MaterialAlertDialogBuilder(requireContext())
+        var dialog: androidx.appcompat.app.AlertDialog? = null
+        dialog = MaterialAlertDialogBuilder(requireContext())
             .setTitle(title)
             .setMultiChoiceItems(items, checked) { _, which, isChecked ->
                 if (hasNone && isChecked && which == noneIdx) {
-                    // selecting None clears all others
-                    for (i in checked.indices) checked[i] = false
+                    // selecting None: uncheck every other option visually and logically
+                    for (i in checked.indices) {
+                        checked[i] = false
+                        if (i != noneIdx) dialog?.listView?.setItemChecked(i, false)
+                    }
                     checked[noneIdx] = true
                 } else if (hasNone && isChecked && which != noneIdx) {
-                    // selecting any real item clears None
+                    // selecting any real option: uncheck None visually and logically
                     checked[which] = true
-                    if (noneIdx >= 0) checked[noneIdx] = false
+                    if (noneIdx >= 0) {
+                        checked[noneIdx] = false
+                        dialog?.listView?.setItemChecked(noneIdx, false)
+                    }
                 } else {
                     checked[which] = isChecked
                 }
