@@ -17,6 +17,7 @@ import uk.org.cgatechnologies.wideya.common.utils.Utils
     Index(value = ["updated_at"]),
     Index(value = ["sync_flag"]),
     Index(value = ["guardian_person_uuid"]),
+    Index(value = ["learner_id"]),
 ])
 data class Learner(
     @PrimaryKey(autoGenerate = false) val uuid: String = Utils.getUuidOrdered(),

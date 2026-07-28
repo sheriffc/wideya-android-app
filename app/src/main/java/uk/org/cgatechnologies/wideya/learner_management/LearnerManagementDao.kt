@@ -97,4 +97,15 @@ abstract class LearnerManagementDao {
     )
     abstract fun checkAdmissionNumberExists(admissionNumber: String, schoolUuid: String, learnerUuid: String?): String?
 
+    /**
+     * All learner_id values for a given school prefix, so the next sequence
+     * number can be derived from what's actually on-device (the `learner` table
+     * is synced in full to every device) instead of a purely local counter that
+     * can't see IDs issued by other devices or previous installs. Bounded with a
+     * lexicographic range rather than LIKE so there's no wildcard-escaping needed
+     * on the emis_id, e.g. lo="5202-2-09687-", hi="5202-2-09687." ('.' > '-').
+     */
+    @Query("SELECT learner_id FROM learner WHERE learner_id >= :lo AND learner_id < :hi")
+    abstract fun getLearnerIdsInPrefixRange(lo: String, hi: String): List<String>?
+
 }

@@ -32,4 +32,26 @@ abstract class LearnerIdSequenceDao {
             next
         }
     }
+
+    /**
+     * Like [getAndIncrement], but first floors the counter to at least
+     * [localScanMax] — the highest sequence number already found in this
+     * device's own (fully-synced) `learner` table for this school+year. This
+     * covers two cases the plain local counter can't: a fresh install/reinstall
+     * (the counter resets to 0 but the downloaded learner data hasn't), and a
+     * device that has downloaded learners another device created since this
+     * counter last advanced. Never decreases the counter.
+     */
+    @Transaction
+    open fun getAndIncrementSeeded(emisId: String, academicYear: String, localScanMax: Int): Int {
+        val existing = getSequence(emisId, academicYear)
+        val baseline = maxOf(existing?.last_sequence ?: 0, localScanMax)
+        val next = baseline + 1
+        if (existing == null) {
+            insertSequence(LearnerIdSequence(emis_id = emisId, academic_year = academicYear, last_sequence = next))
+        } else {
+            updateSequence(existing.copy(last_sequence = next))
+        }
+        return next
+    }
 }

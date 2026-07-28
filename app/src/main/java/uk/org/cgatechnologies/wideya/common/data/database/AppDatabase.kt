@@ -76,7 +76,7 @@ private const val PASSPHRASE = "tests"
         TableStatesUniTables::class,
         TableStatesBiTables::class,
     ],
-    version = 11,
+    version = 12,
     exportSchema = true,
     autoMigrations = [
         AutoMigration(from = 2, to = 3),
@@ -243,6 +243,12 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        private val MIGRATION_11_12 = object : Migration(11, 12) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE INDEX IF NOT EXISTS `index_learner_learner_id` ON `learner` (`learner_id`)")
+            }
+        }
+
         fun getInstance(): AppDatabase?{
             return instance
         }
@@ -258,7 +264,7 @@ abstract class AppDatabase : RoomDatabase() {
                     DB_NAME
                 )
                     .allowMainThreadQueries()
-                    .addMigrations(MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9, MIGRATION_9_10, MIGRATION_10_11)
+                    .addMigrations(MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9, MIGRATION_9_10, MIGRATION_10_11, MIGRATION_11_12)
                     .apply {
                         when (BuildConfig.BUILD_TYPE) {
 //                            "release" -> {

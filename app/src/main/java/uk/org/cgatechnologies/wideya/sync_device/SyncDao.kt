@@ -130,13 +130,26 @@ abstract class SyncDao {
     @RawQuery
     abstract fun updateSyncFlag(query: SupportSQLiteQuery): Cursor
 
+    // The server always echoes the effective learner_id for `learner` rows (see
+    // AndroidSync ApiController/DataSync::persistLearnerRecord), whether it
+    // changed or not, since the originating device otherwise has no way to learn
+    // of a server-side collision correction: full-table `learner` downloads
+    // exclude rows most recently synced by this device's own install id.
+    @Query("UPDATE learner SET learner_id = :learnerId WHERE uuid = :uuid")
+    abstract fun applyLearnerIdFromAck(uuid: String, learnerId: String)
+
     @Transaction
     open fun updateSyncFlagInTransaction(tableName: String, confirmedList: JsonArray): Int {
         var insertCounter = 0
         confirmedList.forEach {
 
-            val pkCn: String = it.asJsonObject.get("pkCn").asString
-            val id = it.asJsonObject.get("id").asString
+            val obj = it.asJsonObject
+            val pkCn: String = obj.get("pkCn").asString
+            val id = obj.get("id").asString
+
+            if (tableName == "learner" && obj.has("learner_id") && !obj.get("learner_id").isJsonNull) {
+                applyLearnerIdFromAck(id, obj.get("learner_id").asString)
+            }
 
             //updated the sync flag
             val queryString =

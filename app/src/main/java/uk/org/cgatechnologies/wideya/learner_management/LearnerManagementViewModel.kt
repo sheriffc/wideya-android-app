@@ -142,11 +142,13 @@ class LearnerManagementViewModel(application: Application) : AndroidViewModel(ap
                 }
                 enrolment_current_academic_year = acYear.toString()
 
-                if (learner_id.isNullOrEmpty() && !school_uuid.isNullOrEmpty()) {
+                if (learner_id.isNullOrEmpty() && !school_uuid.isNullOrEmpty() && acYear > 0) {
                     val school = schoolManagementRepository.getSchoolModelById(school_uuid!!)
                     val emisId = school.emis_id
                     if (!emisId.isNullOrEmpty()) {
-                        val sequence = learnerIdSequenceDao.getAndIncrement(emisId, acYear.toString())
+                        val yearSuffix = acYear.toString().takeLast(2)
+                        val localMax = repository.getLocalMaxSequence(emisId, yearSuffix)
+                        val sequence = learnerIdSequenceDao.getAndIncrementSeeded(emisId, acYear.toString(), localMax)
                         learner_id = LearnerIdGenerator.format(emisId, acYear, sequence)
                     }
                 }
@@ -202,11 +204,13 @@ class LearnerManagementViewModel(application: Application) : AndroidViewModel(ap
 
                 enrolment_current_academic_year = acYear.toString()
 
-                if (learner_id.isNullOrEmpty() && !school_uuid.isNullOrEmpty()) {
+                if (learner_id.isNullOrEmpty() && !school_uuid.isNullOrEmpty() && acYear > 0) {
                     val school = schoolManagementRepository.getSchoolModelById(school_uuid!!)
                     val emisId = school.emis_id
                     if (!emisId.isNullOrEmpty()) {
-                        val sequence = learnerIdSequenceDao.getAndIncrement(emisId, acYear.toString())
+                        val yearSuffix = acYear.toString().takeLast(2)
+                        val localMax = repository.getLocalMaxSequence(emisId, yearSuffix)
+                        val sequence = learnerIdSequenceDao.getAndIncrementSeeded(emisId, acYear.toString(), localMax)
                         learner_id = LearnerIdGenerator.format(emisId, acYear, sequence)
                     }
                 }
